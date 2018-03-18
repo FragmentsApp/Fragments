@@ -46,19 +46,18 @@ public class Fragments.TorrentManager{
         }
 
         private void update_transmission_settings(){
-        	message("Save session settings...");
-                settings.add_int (Transmission.Prefs.download_queue_size, App.settings.max_downloads);
-		session.update_settings (settings);
+		message("Save session settings...");
+		settings.add_int (Transmission.Prefs.download_queue_size, App.settings.max_downloads);
 		session.save_settings(CONFIG_DIR, settings);
-
+		session.update_settings (settings);
         }
 
         public void restore_torrents(){
 		var torrent_constructor = new Transmission.TorrentConstructor (session);
 		unowned Transmission.Torrent[] transmission_torrents = session.load_torrents (torrent_constructor);
                 for (int i = 0; i < transmission_torrents.length; i++) {
-                	var torrent = new Torrent(transmission_torrents[i]);
-                	torrent.notify["activity"].connect(() => { update_torrent(torrent); });
+			var torrent = new Torrent(transmission_torrents[i]);
+			torrent.notify["activity"].connect(() => { update_torrent(torrent); });
 			update_torrent(torrent);
 		}
         }
