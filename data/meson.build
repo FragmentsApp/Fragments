@@ -30,7 +30,4 @@ i18n.merge_file(
 )
 
 # Icons
-install_subdir(
-  'icons/hicolor',
-  install_dir: join_paths(get_option('datadir'), 'icons')
-)
+install_subdir('icons/hicolor/', install_dir: join_paths (get_option('datadir'), 'icons'))

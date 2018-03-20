@@ -5,5 +5,5 @@ Terminal=false
 Type=Application
 StartupNotify=true
 MimeType=x-scheme-handler/magnet;application/x-bittorrent;
-Icon=emblem-downloads
+Icon=org.gnome.Fragments
 Categories=GNOME;GTK;Utility;
