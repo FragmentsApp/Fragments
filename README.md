@@ -1,7 +1,9 @@
-<center>![icon](https://github.com/haecker-felix/Fragments/raw/master/data/icons/hicolor/256x256/apps/org.gnome.Fragments.png)</center>
-<center><h1>Fragments</h1></center>
-<center>A new GTK3 BitTorrent Client, which is still under development.</center>
-<center>![screenshot](https://i.imgur.com/UuIlpu9.png)</center>
+<img src="https://github.com/haecker-felix/Fragments/raw/master/data/icons/hicolor/128x128/apps/org.gnome.Fragments.png" align="left" />
+
+# Fragments
+A new GTK3 BitTorrent Client, which is still under development.
+
+![screenshot](https://i.imgur.com/UuIlpu9.png)
 
 Fragments does not aim to integrate as many features or settings as possible. There are plenty of other torrent clients for that. Fragments is an easy to use BitTorrent client which follows the GNOME HIG and includes well thought-out features.
 
