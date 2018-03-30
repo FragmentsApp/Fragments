@@ -3,7 +3,7 @@ public class Fragments.TorrentManager{
 	private Transmission.variant_dict settings;
 	private Transmission.Session session;
 
-        private static string CONFIG_DIR = GLib.Path.build_path(GLib.Path.DIR_SEPARATOR_S, Environment.get_user_config_dir(), "fragments");
+	private static string CONFIG_DIR = GLib.Path.build_path(GLib.Path.DIR_SEPARATOR_S, Environment.get_user_config_dir(), "fragments");
 
 	public GLib.ListStore stopped_torrents;
 	public GLib.ListStore check_wait_torrents;
@@ -13,15 +13,16 @@ public class Fragments.TorrentManager{
 	public GLib.ListStore seed_torrents;
 	public GLib.ListStore seed_wait_torrents;
 
-        public TorrentManager(){
+	public TorrentManager(){
 		Transmission.String.Units.mem_init(1024, _("KB"), _("MB"), _("GB"), _("TB"));
 		Transmission.String.Units.speed_init(1024, _("KB/s"), _("MB/s"), _("GB/s"), _("TB/s"));
 
-                settings = Transmission.variant_dict(0);
-                Transmission.load_default_settings(ref settings, CONFIG_DIR, "fragments");
+		settings = Transmission.variant_dict(0);
+		Transmission.load_default_settings(ref settings, CONFIG_DIR, "fragments");
 
-                session = new Transmission.Session(CONFIG_DIR, false, settings);
-                if(App.settings.download_folder == "") App.settings.download_folder = Environment.get_user_special_dir(GLib.UserDirectory.DOWNLOAD);
+		session = new Transmission.Session(CONFIG_DIR, false, settings);
+		if(App.settings.download_folder == "") App.settings.download_folder = Environment.get_user_special_dir(GLib.UserDirectory.DOWNLOAD);
+		if(App.settings.incomplete_folder == "") App.settings.incomplete_folder = Environment.get_user_cache_dir();
 
 		stopped_torrents = new GLib.ListStore(typeof (Torrent));
 		check_wait_torrents = new GLib.ListStore(typeof (Torrent));
@@ -33,34 +34,38 @@ public class Fragments.TorrentManager{
 
 		update_transmission_settings();
 		connect_signals();
-        }
+	}
 
-        public void close_session(){
-        	message("Close transmission session...");
-        	update_transmission_settings();
+	public void close_session(){
+		message("Close transmission session...");
+		update_transmission_settings();
 		session = null;
-        }
+	}
 
-        private void connect_signals(){
+	private void connect_signals(){
 		App.settings.notify["max-downloads"].connect(update_transmission_settings);
-        }
+	}
 
-        private void update_transmission_settings(){
-		message("Save session settings...");
+	private void update_transmission_settings(){
+		message("Apply session settings...");
 		settings.add_int (Transmission.Prefs.download_queue_size, App.settings.max_downloads);
+		settings.add_str(Transmission.Prefs.download_dir, App.settings.download_folder);
+		settings.add_str(Transmission.Prefs.incomplete_dir, App.settings.incomplete_folder);
+
+		message("Save session settings...");
 		session.save_settings(CONFIG_DIR, settings);
 		session.update_settings (settings);
-        }
+	}
 
-        public void restore_torrents(){
+	public void restore_torrents(){
 		var torrent_constructor = new Transmission.TorrentConstructor (session);
 		unowned Transmission.Torrent[] transmission_torrents = session.load_torrents (torrent_constructor);
-                for (int i = 0; i < transmission_torrents.length; i++) {
+		for (int i = 0; i < transmission_torrents.length; i++) {
 			var torrent = new Torrent(transmission_torrents[i]);
 			torrent.notify["activity"].connect(() => { update_torrent(torrent); });
 			update_torrent(torrent);
 		}
-        }
+	}
 
 	public void add_torrent_by_path(string path){
 		message("Adding torrent by file \"%s\"...", path);
@@ -92,8 +97,6 @@ public class Fragments.TorrentManager{
 	}
 
 	private void add_torrent(ref Transmission.TorrentConstructor torrent_constructor){
-		torrent_constructor.set_download_dir (Transmission.ConstructionMode.FORCE, App.settings.download_folder);
-
 		Transmission.ParseResult result;
 		int duplicate_id;
 		unowned Transmission.Torrent torrent = torrent_constructor.instantiate (out result, out duplicate_id);

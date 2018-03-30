@@ -10,6 +10,10 @@
       <default>""</default>
     </key>
 
+    <key name="incomplete-folder" type="s">
+      <default>""</default>
+    </key>
+
     <key name="max-downloads" type="i">
       <default>3</default>
     </key>

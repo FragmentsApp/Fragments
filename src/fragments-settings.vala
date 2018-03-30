@@ -4,6 +4,7 @@ public class Fragments.Settings : GLib.Object{
 
 	private bool _enable_dark_theme;
 	private string _download_folder;
+	private string _incomplete_folder;
 	private int _max_downloads;
 
 	public Settings(){
@@ -11,6 +12,7 @@ public class Fragments.Settings : GLib.Object{
 
 		_enable_dark_theme = settings.get_boolean("enable-dark-theme");
 		_download_folder = settings.get_string("download-folder");
+		_incomplete_folder = settings.get_string("incomplete-folder");
 		_max_downloads = settings.get_int("max-downloads");
 	}
 
@@ -27,6 +29,14 @@ public class Fragments.Settings : GLib.Object{
 		set{
 			_download_folder = value;
 			settings.set_string ("download-folder", value);
+		}
+	}
+
+	public string incomplete_folder{
+		get{ return _incomplete_folder;	}
+		set{
+			_incomplete_folder = value;
+			settings.set_string ("incomplete-folder", value);
 		}
 	}
 
