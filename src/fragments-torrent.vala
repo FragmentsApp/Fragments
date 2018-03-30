@@ -177,7 +177,6 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 	}
 
 	private void remove_torrent(){
-		message("remove " + name);
 		Gtk.MessageDialog msg = new Gtk.MessageDialog (App.window, Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "");
 
 		msg.secondary_text = _("Once removed, continuing the transfer will require the torrent file or magnet link.");

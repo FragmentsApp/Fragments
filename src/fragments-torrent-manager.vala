@@ -22,7 +22,7 @@ public class Fragments.TorrentManager{
 
 		session = new Transmission.Session(CONFIG_DIR, false, settings);
 		if(App.settings.download_folder == "") App.settings.download_folder = Environment.get_user_special_dir(GLib.UserDirectory.DOWNLOAD);
-		if(App.settings.incomplete_folder == "") App.settings.incomplete_folder = Environment.get_user_cache_dir();
+		if(App.settings.incomplete_folder == "") App.settings.incomplete_folder = Path.build_path (Path.DIR_SEPARATOR_S, Environment.get_user_cache_dir(), "fragments", "incomplete_torrents").to_string();
 
 		stopped_torrents = new GLib.ListStore(typeof (Torrent));
 		check_wait_torrents = new GLib.ListStore(typeof (Torrent));
