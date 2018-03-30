@@ -133,5 +133,7 @@ public class Fragments.TorrentManager{
 			case Transmission.Activity.SEED_WAIT: seed_wait_torrents.append(torrent); break;
 			case Transmission.Activity.SEED: seed_torrents.append(torrent); break;
 		}
+
+		torrent.show_all();
 	}
 }
