@@ -217,7 +217,6 @@
                                   </object>
                                 </child>
                                 <style>
-                                  <class name="destructive-action"/>
                                   <class name="image-button"/>
                                 </style>
                               </object>
