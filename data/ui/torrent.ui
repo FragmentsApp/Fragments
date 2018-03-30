@@ -195,50 +195,79 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkButton" id="action_button">
+                          <object class="GtkStack" id="primary_action_stack">
                             <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">True</property>
+                            <property name="can_focus">False</property>
                             <property name="valign">center</property>
-                            <signal name="clicked" handler="action_button_clicked" swapped="no"/>
+                            <property name="hhomogeneous">False</property>
+                            <property name="vhomogeneous">False</property>
+                            <property name="transition_type">crossfade</property>
+                            <property name="interpolate_size">True</property>
                             <child>
-                              <object class="GtkStack" id="action_stack">
+                              <object class="GtkButton" id="remove_button">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="transition_type">crossfade</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <signal name="clicked" handler="remove_button_clicked" swapped="no"/>
                                 <child>
-                                  <object class="GtkImage" id="pause_image">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="icon_name">media-playback-pause-symbolic</property>
-                                  </object>
-                                  <packing>
-                                    <property name="name">stop</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkImage" id="start_image">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="icon_name">media-playback-start-symbolic</property>
-                                  </object>
-                                  <packing>
-                                    <property name="name">start</property>
-                                    <property name="position">1</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkImage" id="remove_image">
+                                  <object class="GtkImage">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="icon_name">user-trash-symbolic</property>
                                   </object>
-                                  <packing>
-                                    <property name="name">remove</property>
-                                    <property name="position">2</property>
-                                  </packing>
                                 </child>
+                                <style>
+                                  <class name="destructive-action"/>
+                                  <class name="image-button"/>
+                                </style>
                               </object>
+                              <packing>
+                                <property name="name">remove</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="pause_button">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <signal name="clicked" handler="pause_button_clicked" swapped="no"/>
+                                <child>
+                                  <object class="GtkImage">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="icon_name">media-playback-pause-symbolic</property>
+                                  </object>
+                                </child>
+                                <style>
+                                  <class name="image-button"/>
+                                </style>
+                              </object>
+                              <packing>
+                                <property name="name">pause</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="continue_button">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <signal name="clicked" handler="continue_button_clicked" swapped="no"/>
+                                <child>
+                                  <object class="GtkImage">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="icon_name">media-playback-start-symbolic</property>
+                                  </object>
+                                </child>
+                                <style>
+                                  <class name="image-button"/>
+                                </style>
+                              </object>
+                              <packing>
+                                <property name="name">continue</property>
+                                <property name="position">2</property>
+                              </packing>
                             </child>
                           </object>
                           <packing>
@@ -593,14 +622,43 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkButton" id="remove_button">
-                            <property name="label" translatable="yes">Remove</property>
+                          <object class="GtkStack" id="secondary_action_stack">
                             <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">True</property>
-                            <style>
-                              <class name="destructive-action"/>
-                            </style>
+                            <property name="can_focus">False</property>
+                            <property name="hhomogeneous">False</property>
+                            <property name="vhomogeneous">False</property>
+                            <property name="transition_type">crossfade</property>
+                            <property name="interpolate_size">True</property>
+                            <child>
+                              <object class="GtkButton" id="remove2_button">
+                                <property name="label">gtk-remove</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="use_stock">True</property>
+                                <signal name="clicked" handler="remove_button_clicked" swapped="no"/>
+                                <style>
+                                  <class name="destructive-action"/>
+                                </style>
+                              </object>
+                              <packing>
+                                <property name="name">remove</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="pause2_button">
+                                <property name="label">gtk-media-pause</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="use_stock">True</property>
+                                <signal name="clicked" handler="pause_button_clicked" swapped="no"/>
+                              </object>
+                              <packing>
+                                <property name="name">pause</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
                           </object>
                           <packing>
                             <property name="expand">False</property>

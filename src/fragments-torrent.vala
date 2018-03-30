@@ -7,172 +7,179 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 	public bool removed = false;
 
 	// Torrent name
-        [GtkChild] private Label name_label;
-        public string name { get; set; }
+    [GtkChild] private Label name_label;
+    public string name { get; set; }
 
 	// Status
 	public Transmission.Activity activity { get; set; }
-        [GtkChild] private Label status_label;
+	[GtkChild] private Label status_label;
 
 	// ETA
-        [GtkChild] private Label eta_label;
-        public uint eta { get{ return torrent.stat.eta; } }
+    [GtkChild] private Label eta_label;
+    public uint eta { get{ return torrent.stat.eta; } }
 
 	// Progress
-        [GtkChild] private ProgressBar progress_bar;
-        public double progress { get{ return torrent.stat.percentDone; } }
+    [GtkChild] private ProgressBar progress_bar;
+	public double progress { get{ return torrent.stat.percentDone; } }
 
 	// Seeders
-        [GtkChild] private Label seeders_label;
-        public int seeders_active { get{ return torrent.stat.peersSendingToUs; } }
-        public int seeders { get{ return torrent.stat.peersConnected; } }
+	[GtkChild] private Label seeders_label;
+	public int seeders_active { get{ return torrent.stat.peersSendingToUs; } }
+	public int seeders { get{ return torrent.stat.peersConnected; } }
 
-        // Leechers
-        [GtkChild] private Label leechers_label;
-        public int leechers { get{ return torrent.stat.peersGettingFromUs; } }
+	// Leechers
+	[GtkChild] private Label leechers_label;
+	public int leechers { get{ return torrent.stat.peersGettingFromUs; } }
 
 	// Downloaded bytes
-        [GtkChild] private Label downloaded_label;
-        public uint64 downloaded { get{ return torrent.stat.haveValid; } }
+	[GtkChild] private Label downloaded_label;
+	public uint64 downloaded { get{ return torrent.stat.haveValid; } }
 
 	// Uploaded bytes
-        [GtkChild] private Label uploaded_label;
-        public uint64 uploaded { get{ return torrent.stat.uploadedEver; } }
+	[GtkChild] private Label uploaded_label;
+	public uint64 uploaded { get{ return torrent.stat.uploadedEver; } }
 
 	// Download speed
-        [GtkChild] private Label download_speed_label;
-        private string _download_speed;
-        public string download_speed {
-        	get{
-        		char[40] buf = new char[40];
-        		_download_speed = Transmission.String.Units.speed_KBps (buf, torrent.stat.pieceDownloadSpeed_KBps);
+	[GtkChild] private Label download_speed_label;
+	private string _download_speed;
+	public string download_speed {
+		get{
+			char[40] buf = new char[40];
+			_download_speed = Transmission.String.Units.speed_KBps (buf, torrent.stat.pieceDownloadSpeed_KBps);
 			return _download_speed;
-        	}
-        }
+		}
+	}
 
 	// Upload speed
-        [GtkChild] private Label upload_speed_label;
-        private string _upload_speed;
-        public string upload_speed {
-        	get{
-        		char[40] buf = new char[40];
+	[GtkChild] private Label upload_speed_label;
+	private string _upload_speed;
+	public string upload_speed {
+		get{
+			char[40] buf = new char[40];
 			_upload_speed = Transmission.String.Units.speed_KBps (buf, torrent.stat.pieceUploadSpeed_KBps);
 			return _upload_speed;
-        	}
-        }
+		}
+	}
 
-        // Torrent size
-        public uint64 size { get{ return torrent.stat.sizeWhenDone; } }
+	// Torrent size
+	public uint64 size { get{ return torrent.stat.sizeWhenDone; } }
 
 	// Manual update
 	[GtkChild] private Button manual_update_button;
 
 	// Update interval
 	private const int search_delay = 1;
-        private uint delayed_changed_id;
+	private uint delayed_changed_id;
 
-        // Don't update torrent information. Useful for dnd.
+	// Don't update torrent information. Useful for dnd.
 	public bool pause_torrent_update = false;
 
 	// Other
 	[GtkChild] private Image mime_type_image;
-        [GtkChild] private Image turboboost_image;
-        [GtkChild] private Revealer revealer;
-        [GtkChild] private Stack action_stack;
+	[GtkChild] private Image turboboost_image;
+	[GtkChild] private Revealer revealer;
+	[GtkChild] private Stack primary_action_stack;
+	[GtkChild] private Stack secondary_action_stack;
 	[GtkChild] private Button open_button;
 	[GtkChild] private Button remove_button;
 	[GtkChild] public EventBox eventbox;
 	[GtkChild] public Stack index_stack;
 	[GtkChild] public Label index_label;
 
-        public Torrent(Transmission.Torrent torrent){
-        	this.torrent = torrent;
-        	name = torrent.name;
-        	name_label.set_text(name);
+	public Torrent(Transmission.Torrent torrent){
+		this.torrent = torrent;
+		name = torrent.name;
+		name_label.set_text(name);
 
-        	set_mime_type_image();
+		set_mime_type_image();
 
 		// default activity is STOPPED, so it wouldn't trigger the activity notify for stopped torrents
 		activity = Transmission.Activity.CHECK;
 
 		connect_signals();
 		update_information();
-        }
+	}
 
 	private void reset_timeout(){
 		if(delayed_changed_id > 0) Source.remove(delayed_changed_id);
 		delayed_changed_id = Timeout.add_seconds(search_delay, update_information);
-        }
-
-	private void connect_signals(){
-        	this.notify["activity"].connect(() => {
-			action_stack.set_visible_child_name("stop");
-			index_stack.set_visible(false);
-
-        		switch(activity){
-        			case Transmission.Activity.STOPPED: {
-        				action_stack.set_visible_child_name("start");
-					index_stack.set_visible(true);
-					index_stack.set_visible_child_name("stopped");
-        				break;
-        			}
-        			case Transmission.Activity.DOWNLOAD_WAIT: {
-        				index_stack.set_visible(true);
-					index_stack.set_visible_child_name("indexnumber");
-        				break;
-        			}
-        			case Transmission.Activity.CHECK: {
-        				index_stack.set_visible(true);
-					index_stack.set_visible_child_name("check");
-        				break;
-        			}
-        			case Transmission.Activity.CHECK_WAIT: {
-        				index_stack.set_visible(true);
-					index_stack.set_visible_child_name("check");
-        				break;
-        			}
-        			case Transmission.Activity.SEED: {
-        				action_stack.set_visible_child_name("remove");
-        				break;
-        			}
-        			case Transmission.Activity.SEED_WAIT: {
-        				action_stack.set_visible_child_name("remove");
-        				break;
-        			}
-        		}
-        	});
-
-        	eventbox.drag_begin.connect(() => {
-        		Timeout.add(1, () =>{ this.set_visible(false); return false; });
-        		pause_torrent_update = true;
-        	});
-
-        	eventbox.drag_end.connect(() => {
-        		this.set_visible(true);
-        		pause_torrent_update = false;
-        	});
-
-        	remove_button.clicked.connect(remove_torrent);
 	}
 
-        public void toggle_revealer (){
+	private void connect_signals(){
+		this.notify["activity"].connect(() => {
+			primary_action_stack.set_visible_child_name("pause");
+			secondary_action_stack.set_visible_child_name("remove");
+			index_stack.set_visible(false);
+
+			switch(activity){
+				case Transmission.Activity.STOPPED: {
+					index_stack.set_visible(true);
+					index_stack.set_visible_child_name("stopped");
+					primary_action_stack.set_visible_child_name("continue");
+					break;
+				}
+				case Transmission.Activity.DOWNLOAD_WAIT: {
+					index_stack.set_visible(true);
+					index_stack.set_visible_child_name("indexnumber");
+					break;
+				}
+				case Transmission.Activity.CHECK: {
+					index_stack.set_visible(true);
+					index_stack.set_visible_child_name("check");
+					break;
+				}
+				case Transmission.Activity.CHECK_WAIT: {
+					index_stack.set_visible(true);
+					index_stack.set_visible_child_name("check");
+					break;
+				}
+				case Transmission.Activity.SEED: {
+					primary_action_stack.set_visible_child_name("remove");
+					secondary_action_stack.set_visible_child_name("pause");
+					break;
+				}
+				case Transmission.Activity.SEED_WAIT: {
+					primary_action_stack.set_visible_child_name("remove");
+					secondary_action_stack.set_visible_child_name("pause");
+					break;
+				}
+			}
+		});
+
+		eventbox.drag_begin.connect(() => {
+			Timeout.add(1, () =>{ this.set_visible(false); return false; });
+			pause_torrent_update = true;
+		});
+
+		eventbox.drag_end.connect(() => {
+			this.set_visible(true);
+			pause_torrent_update = false;
+		});
+
+		remove_button.clicked.connect(remove_torrent);
+	}
+
+	public void toggle_revealer (){
 		revealer.set_reveal_child(!revealer.get_reveal_child());
-        }
+	}
 
-        [GtkCallback]
-        private void action_button_clicked(){
-        	switch(activity){
-        		case Transmission.Activity.STOPPED: torrent.start(); break;
-        		case Transmission.Activity.SEED: remove_torrent(); break;
-        		case Transmission.Activity.SEED_WAIT: remove_torrent(); break;
-        		default: torrent.stop(); break;
-        	}
+	[GtkCallback]
+	private void remove_button_clicked(){
+		remove_torrent();
+	}
 
-		update_information();
-        }
+	[GtkCallback]
+	private void pause_button_clicked(){
+		torrent.stop();
+	}
 
-        private void remove_torrent(){
-        	Gtk.MessageDialog msg = new Gtk.MessageDialog (App.window, Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "");
+	[GtkCallback]
+	private void continue_button_clicked(){
+		torrent.start();
+	}
+
+	private void remove_torrent(){
+		Gtk.MessageDialog msg = new Gtk.MessageDialog (App.window, Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "");
 
 		msg.secondary_text = _("Once removed, continuing the transfer will require the torrent file or magnet link.");
 		msg.text = _("Remove Torrent?");
@@ -195,29 +202,29 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 			msg.destroy();
 		});
 		msg.show ();
-        }
+	}
 
-        [GtkCallback]
-        private void manual_update_button_clicked(){
+	[GtkCallback]
+	private void manual_update_button_clicked(){
 		if(torrent.can_manual_update)
 			torrent.manual_update();
 		else
 			manual_update_button.set_sensitive(false);
-        }
+	}
 
-        [GtkCallback]
-        private void open_button_clicked(){
+	[GtkCallback]
+	private void open_button_clicked(){
 		//TODO: Implement open button
-        }
+	}
 
-        [GtkCallback]
-        private bool turboboost_switch_state_set(){
-                return false;
-        }
+	[GtkCallback]
+	private bool turboboost_switch_state_set(){
+		return false;
+	}
 
-        public void set_mime_type_image(){
-        	// determine mime type
-        	string mime_type = "application/x-bittorrent";
+	public void set_mime_type_image(){
+		// determine mime type
+		string mime_type = "application/x-bittorrent";
 		if(torrent.info == null) mime_type = "application/x-bittorrent";
 		if (torrent.info.files.length > 1) mime_type = "inode/directory";
 
@@ -237,8 +244,8 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 	private string generate_activity_text(){
 		string st = "";
-                switch(torrent.stat.activity){
-                	case Transmission.Activity.STOPPED: { st = _("Paused"); break;}
+		switch(torrent.stat.activity){
+			case Transmission.Activity.STOPPED: { st = _("Paused"); break;}
 			case Transmission.Activity.SEED: { st = _("%s uploaded · %s".printf(format_size(uploaded), upload_speed)); break;}
 			case Transmission.Activity.SEED_WAIT: { st = _("Queued to seed"); break;}
 			case Transmission.Activity.DOWNLOAD: { st = _("%s of %s downloaded · %s").printf(format_size(downloaded), format_size(size), download_speed); break;}
@@ -262,8 +269,8 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 		status_label.set_text(generate_activity_text());
 
-                progress_bar.set_fraction(progress);
-                if(eta != uint.MAX || eta == 0) eta_label.set_text("%s left".printf(Utils.time_to_string(eta)));
+		progress_bar.set_fraction(progress);
+		if(eta != uint.MAX || eta == 0) eta_label.set_text("%s left".printf(Utils.time_to_string(eta)));
 		else eta_label.set_text("");
 
 		download_speed_label.set_text(download_speed);
@@ -275,6 +282,6 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 		leechers_label.set_text(leechers.to_string());
 		seeders_label.set_text(_("%i (%i active)").printf(seeders, seeders_active));
 
-                return false;
-        }
+		return false;
+	}
 }
