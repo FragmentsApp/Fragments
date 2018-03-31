@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-	<id>org.gnome.Fragments.desktop</id>
-	<licence>CC0</licence>
-	<description>
-	</description>
+  <id>org.gnome.Fragments.desktop</id>
+  <name>Fragments</name>
+  <summary>A BitTorrent Client</summary>
+  <translation type="gettext">fragments</translation>
+  <developer_name>Felix Häcker</developer_name>
+  <update_contact>haecker.felix1207@gmail.com</update_contact>
+  <metadata_license>CC0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+
+  <description>
+    <p>
+      Fragments is an easy to use BitTorrent client which follows the GNOME HIG
+      and includes well thought-out features.
+    </p>
+  </description>
+
+  <screenshots>
+    <screenshot type="default">
+      <image width="774" height="549">https://camo.githubusercontent.com/c25a5bf6e8d2f5e9dd73dd877952a7a6910d11df/68747470733a2f2f692e696d6775722e636f6d2f5575496c7075392e706e67</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://github.com/haecker-felix/Fragments</url>
+  <url type="bugtracker">https://github.com/haecker-felix/Fragments/issues</url>
+  <url type="donation">https://de.liberapay.com/haecker-felix</url>
+
+  <kudos>
+    <kudo>AppMenu</kudo>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>ModernToolkit</kudo>
+    <kudo>Notifications</kudo>
+  </kudos>
+
 </component>
