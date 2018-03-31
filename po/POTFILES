@@ -1,3 +1,7 @@
-data/org.gnome.Fragments.desktop.in
-data/org.gnome.Fragments.appdata.xml.in
-data/org.gnome.Fragments.gschema.xml
+data/ui/settings-window.ui
+data/ui/torrent.ui
+src/fragments-app.vala
+src/fragments-settings-window.vala
+src/fragments-torrent.vala
+src/fragments-utils.vala
+src/fragments-window.vala

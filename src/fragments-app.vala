@@ -92,7 +92,6 @@ public class Fragments.App : Gtk.Application {
 			comments: _("A simple torrent manager"),
 			authors: authors,
 			artists: artists,
-			translator_credits: _("translator-credits"),
 			website: "https://github.com/FragmentsApp/Fragments",
 			website_label: _("GitHub Homepage"),
 			version: Config.VERSION,
