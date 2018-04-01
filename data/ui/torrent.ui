@@ -18,32 +18,50 @@
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">1</property>
                 <property name="border_width">12</property>
+                <property name="spacing">12</property>
                 <child>
                   <object class="GtkStack" id="index_stack">
+                    <property name="width_request">60</property>
+                    <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="no_show_all">True</property>
-                    <property name="margin_left">8</property>
-                    <property name="margin_right">20</property>
                     <property name="transition_type">crossfade</property>
                     <child>
-                      <object class="GtkImage">
+                      <object class="GtkImage" id="stopped_image">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="icon_name">media-playback-pause-symbolic</property>
+                        <property name="icon_size">3</property>
                       </object>
                       <packing>
                         <property name="name">stopped</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="index_label">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">1</property>
-                        <style>
-                          <class name="dim-label"/>
-                        </style>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkLabel" id="index_label">
+                            <property name="width_request">25</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="halign">center</property>
+                            <property name="valign">center</property>
+                            <property name="label" translatable="yes">1</property>
+                            <style>
+                              <class name="index-number"/>
+                            </style>
+                          </object>
+                          <packing>
+                            <property name="expand">True</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="name">indexnumber</property>
@@ -51,14 +69,104 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkSpinner">
+                      <object class="GtkSpinner" id="spinner">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
                         <property name="active">True</property>
                       </object>
                       <packing>
                         <property name="name">check</property>
                         <property name="position">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkBox" id="download_box">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">center</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixel_size">22</property>
+                            <property name="icon_name">folder-download-symbolic</property>
+                          </object>
+                          <packing>
+                            <property name="expand">True</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="download_speed_index_label">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label">530 kb/s</property>
+                            <property name="justify">center</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <style>
+                          <class name="speed-box"/>
+                        </style>
+                      </object>
+                      <packing>
+                        <property name="name">download</property>
+                        <property name="position">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkBox" id="upload_box">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">center</property>
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">3</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixel_size">22</property>
+                            <property name="icon_name">folder-download-symbolic</property>
+                            <style>
+                              <class name="rotate180"/>
+                            </style>
+                          </object>
+                          <packing>
+                            <property name="expand">True</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="upload_speed_index_label">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label">-</property>
+                            <property name="justify">center</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <style>
+                          <class name="speed-box"/>
+                        </style>
+                      </object>
+                      <packing>
+                        <property name="name">upload</property>
+                        <property name="position">4</property>
                       </packing>
                     </child>
                   </object>

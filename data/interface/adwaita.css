@@ -21,11 +21,6 @@
 	border-color: @unfocused_borders;
 }
 
-.torrent-thumbnail{
-	border: 1px solid @borders;
-	border-radius: 5px;
-}
-
 .dragging{
   box-shadow: 0px 0px 2px 0px #333;
   border: solid black 1px;
@@ -37,4 +32,22 @@
 
 .drag-hover-bottom {
   margin-bottom: 100px;
+}
+
+.speed-box{
+  color: @theme_selected_bg_color;
+  font-size: x-small;
+}
+
+.rotate180{
+	-gtk-icon-transform: rotate(180deg);
+}
+
+.index-number{
+	color: @theme_base_color;
+	border-radius: 20px;
+	border-right: solid 5px;
+	border-left: solid 5px;
+	border-color: @theme_text_color;
+	background-color: @theme_text_color;
 }

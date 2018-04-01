@@ -41,6 +41,7 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 	// Download speed
 	[GtkChild] private Label download_speed_label;
+	[GtkChild] private Label download_speed_index_label;
 	private string _download_speed;
 	public string download_speed {
 		get{
@@ -52,6 +53,7 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 	// Upload speed
 	[GtkChild] private Label upload_speed_label;
+	[GtkChild] private Label upload_speed_index_label;
 	private string _upload_speed;
 	public string upload_speed {
 		get{
@@ -107,38 +109,45 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 	private void connect_signals(){
 		this.notify["activity"].connect(() => {
-			primary_action_stack.set_visible_child_name("pause");
-			secondary_action_stack.set_visible_child_name("remove");
-			index_stack.set_visible(false);
-
 			switch(activity){
 				case Transmission.Activity.STOPPED: {
-					index_stack.set_visible(true);
 					index_stack.set_visible_child_name("stopped");
 					primary_action_stack.set_visible_child_name("continue");
+					secondary_action_stack.set_visible_child_name("remove");
+					break;
+				}
+				case Transmission.Activity.DOWNLOAD: {
+					index_stack.set_visible_child_name("download");
+					primary_action_stack.set_visible_child_name("pause");
+					secondary_action_stack.set_visible_child_name("remove");
 					break;
 				}
 				case Transmission.Activity.DOWNLOAD_WAIT: {
-					index_stack.set_visible(true);
 					index_stack.set_visible_child_name("indexnumber");
+					primary_action_stack.set_visible_child_name("pause");
+					secondary_action_stack.set_visible_child_name("remove");
 					break;
 				}
 				case Transmission.Activity.CHECK: {
-					index_stack.set_visible(true);
 					index_stack.set_visible_child_name("check");
+					primary_action_stack.set_visible_child_name("pause");
+					secondary_action_stack.set_visible_child_name("remove");
 					break;
 				}
 				case Transmission.Activity.CHECK_WAIT: {
-					index_stack.set_visible(true);
 					index_stack.set_visible_child_name("check");
+					primary_action_stack.set_visible_child_name("pause");
+					secondary_action_stack.set_visible_child_name("remove");
 					break;
 				}
 				case Transmission.Activity.SEED: {
+					index_stack.set_visible_child_name("upload");
 					primary_action_stack.set_visible_child_name("remove");
 					secondary_action_stack.set_visible_child_name("pause");
 					break;
 				}
 				case Transmission.Activity.SEED_WAIT: {
+					index_stack.set_visible_child_name("upload");
 					primary_action_stack.set_visible_child_name("remove");
 					secondary_action_stack.set_visible_child_name("pause");
 					break;
@@ -273,6 +282,8 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 		download_speed_label.set_text(download_speed);
 		upload_speed_label.set_text(upload_speed);
+		download_speed_index_label.set_text(download_speed);
+		upload_speed_index_label.set_text(upload_speed);
 
 		downloaded_label.set_text(format_size(downloaded));
 		uploaded_label.set_text(format_size(uploaded));
