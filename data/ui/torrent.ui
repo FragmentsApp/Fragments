@@ -20,67 +20,91 @@
                 <property name="can_focus">False</property>
                 <property name="margin_left">1</property>
                 <child>
-                  <object class="GtkStack" id="index_stack">
+                  <object class="GtkBox">
                     <property name="width_request">74</property>
+                    <property name="height_request">74</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="transition_type">crossfade</property>
+                    <property name="orientation">vertical</property>
                     <child>
-                      <object class="GtkImage" id="stopped_image">
+                      <object class="GtkStack" id="index_stack">
+                        <property name="width_request">35</property>
+                        <property name="height_request">35</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="icon_name">media-playback-pause-symbolic</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="hhomogeneous">False</property>
+                        <property name="vhomogeneous">False</property>
+                        <property name="transition_type">crossfade</property>
+                        <child>
+                          <object class="GtkImage" id="stopped_image">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="icon_name">media-playback-pause-symbolic</property>
+                          </object>
+                          <packing>
+                            <property name="name">stopped</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="index_label">
+                            <property name="width_request">25</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">1</property>
+                          </object>
+                          <packing>
+                            <property name="name">indexnumber</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkSpinner" id="spinner">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="halign">center</property>
+                            <property name="valign">center</property>
+                            <property name="active">True</property>
+                          </object>
+                          <packing>
+                            <property name="name">check</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="download_image">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixel_size">16</property>
+                            <property name="icon_name">download-symbolic</property>
+                          </object>
+                          <packing>
+                            <property name="name">download</property>
+                            <property name="position">3</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="upload_image">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixel_size">16</property>
+                            <property name="icon_name">upload-symbolic</property>
+                          </object>
+                          <packing>
+                            <property name="name">upload</property>
+                            <property name="position">4</property>
+                          </packing>
+                        </child>
+                        <style>
+                          <class name="bubble"/>
+                        </style>
                       </object>
                       <packing>
-                        <property name="name">stopped</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="index_label">
-                        <property name="width_request">25</property>
-                        <property name="height_request">25</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">1</property>
-                      </object>
-                      <packing>
-                        <property name="name">indexnumber</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkSpinner" id="spinner">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="active">True</property>
-                      </object>
-                      <packing>
-                        <property name="name">check</property>
-                        <property name="position">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="pixel_size">22</property>
-                        <property name="icon_name">folder-download-symbolic</property>
-                      </object>
-                      <packing>
-                        <property name="name">download</property>
-                        <property name="position">3</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="pixel_size">22</property>
-                        <property name="icon_name">folder-download-symbolic</property>
-                      </object>
-                      <packing>
-                        <property name="name">upload</property>
-                        <property name="position">4</property>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
                       </packing>
                     </child>
                   </object>

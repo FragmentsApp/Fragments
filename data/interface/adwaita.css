@@ -34,3 +34,9 @@
 .drag-hover-bottom {
   margin-bottom: 100px;
 }
+
+.bubble{
+	border-radius: 50%;
+	background-color: @theme_selected_bg_color;
+	color: @theme_selected_fg_color;
+}

@@ -10,7 +10,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="download.svg"
+   sodipodi:docname="download-symbolic.svg"
    height="16"
    id="svg7384"
    inkscape:version="0.92.2 2405546, 2018-03-11"
@@ -33,7 +33,7 @@
      bordercolor="#666666"
      borderopacity="1"
      inkscape:current-layer="layer9"
-     inkscape:cx="18.291326"
+     inkscape:cx="-3.083674"
      inkscape:cy="17.158646"
      gridtolerance="10"
      inkscape:guide-bbox="true"
@@ -91,26 +91,13 @@
   <g
      inkscape:groupmode="layer"
      id="layer9"
-     inkscape:label="apps"
+     inkscape:label="actions"
      style="display:inline"
      transform="translate(-323.0002,125)">
-    <g
-       style="display:inline"
-       inkscape:label="folder-download"
-       transform="matrix(0,1,1,0,-194.9998,-245)"
-       id="g11138">
-      <rect
-         width="16"
-         height="16"
-         x="120"
-         y="518"
-         id="rect11140"
-         style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none;enable-background:new" />
-      <path
-         style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Andale Mono';-inkscape-font-specification:'Andale Mono';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.78124988;marker:none;enable-background:new"
-         d="M 7.5 1 C 7.223 1 7 1.223 7 1.5 L 7 2 L 7 2.5 L 7 11.060547 L 4.4121094 8.2851562 C 4.2174794 8.0744163 3.9428594 7.9819962 3.6621094 8.0039062 L 2 8.0039062 L 2 9.0039062 C 1.99988 9.0143063 1.99954 9.0246563 2 9.0351562 C 2.0112 9.2901063 2.12858 9.5450263 2.3125 9.7226562 L 7.53125 15.003906 L 8.5 15 L 13.71875 9.7226562 C 13.90694 9.5344463 14 9.2691962 14 9.0039062 L 14 8.0039062 L 12.292969 8.0039062 C 12.027679 8.0039062 11.762389 8.0970062 11.574219 8.2851562 L 9 11.066406 L 9 2.5 L 9 2 L 9 1.5 C 9 1.223 8.777 1 8.5 1 L 7.5 1 z "
-         transform="matrix(0,1,1,0,120,518)"
-         id="path11142" />
-    </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path11142"
+       d="m 330.5002,-124 c -0.277,0 -0.5,0.223 -0.5,0.5 v 0.5 0.5 8.56055 l -2.58789,-2.77539 c -0.19463,-0.21074 -0.46925,-0.30316 -0.75,-0.28125 h -1.66211 v 1 c -1.2e-4,0.0104 -4.6e-4,0.0207 0,0.0312 0.0112,0.25495 0.12858,0.50987 0.3125,0.6875 l 5.21875,5.28125 0.96875,-0.004 5.21875,-5.27734 c 0.18819,-0.18821 0.28125,-0.45346 0.28125,-0.71875 v -1 h -1.70703 c -0.26529,0 -0.53058,0.0931 -0.71875,0.28125 l -2.57422,2.78125 v -8.56641 -0.5 -0.5 c 0,-0.277 -0.223,-0.5 -0.5,-0.5 z"
+       style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Andale Mono';-inkscape-font-specification:'Andale Mono';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.78124988;marker:none;enable-background:new" />
   </g>
 </svg>
