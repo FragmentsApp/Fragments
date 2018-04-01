@@ -16,7 +16,6 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 	[GtkChild] private Label primary_label;
 	[GtkChild] private Label secondary_label;
 
-
 	// Progress
 	[GtkChild] private ProgressBar progress_bar;
 	public double progress { get{ return torrent.stat.percentDone; } }
@@ -40,7 +39,6 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 	// Download speed
 	[GtkChild] private Label download_speed_label;
-	[GtkChild] private Label download_speed_index_label;
 	private string _download_speed;
 	public string download_speed {
 		get{
@@ -52,7 +50,6 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 	// Upload speed
 	[GtkChild] private Label upload_speed_label;
-	[GtkChild] private Label upload_speed_index_label;
 	private string _upload_speed;
 	public string upload_speed {
 		get{
@@ -252,9 +249,11 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 		if(downloaded == 0)
 			return format_size(size);
 		else if (downloaded == size)
-			return _("%s · %s uploaded").printf(format_size(size), format_size(uploaded));
-		else
+			return _("%s uploaded · %s").printf(format_size(uploaded), upload_speed);
+		else if (activity == Transmission.Activity.STOPPED || activity == Transmission.Activity.DOWNLOAD_WAIT)
 			return _("%s of %s downloaded").printf(format_size(downloaded), format_size(size));
+		else
+			return _("%s of %s downloaded · %s").printf(format_size(downloaded), format_size(size), download_speed);
 	}
 
 	private string get_secondary_text(){
@@ -286,8 +285,6 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 		download_speed_label.set_text(download_speed);
 		upload_speed_label.set_text(upload_speed);
-		download_speed_index_label.set_text(download_speed);
-		upload_speed_index_label.set_text(upload_speed);
 
 		downloaded_label.set_text(format_size(downloaded));
 		uploaded_label.set_text(format_size(uploaded));
