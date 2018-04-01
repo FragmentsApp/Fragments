@@ -219,7 +219,7 @@
                                     <property name="label">Name</property>
                                     <property name="ellipsize">end</property>
                                     <property name="single_line_mode">True</property>
-                                    <property name="max_width_chars">60</property>
+                                    <property name="max_width_chars">50</property>
                                     <attributes>
                                       <attribute name="weight" value="bold"/>
                                     </attributes>
