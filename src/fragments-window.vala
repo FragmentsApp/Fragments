@@ -20,9 +20,6 @@ public class Fragments.Window : Gtk.ApplicationWindow {
 		provider.load_from_resource ("/org/gnome/Fragments/interface/adwaita.css");
 		StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
 
-		var icon_theme  = Gtk.IconTheme.get_default ();
-		icon_theme.add_resource_path ("/org/gnome/Fragments/data/icons/");
-
 		TorrentGroup downloading_group = new TorrentGroup(_("Downloading"));
 		TorrentGroup seeding_group = new TorrentGroup(_("Seeding"));
 		TorrentGroup queued_group = new TorrentGroup(_("Queued"));
