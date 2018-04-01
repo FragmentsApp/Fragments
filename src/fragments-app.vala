@@ -19,9 +19,6 @@ public class Fragments.App : Gtk.Application {
 	protected override void startup () {
 		base.startup ();
 
-		var icon_theme  = Gtk.IconTheme.get_default ();
-		icon_theme.add_resource_path ("/org/gnome/Fragments/data/icons/");
-
 		settings = new Settings();
 		setup_actions();
 		manager = new TorrentManager();
