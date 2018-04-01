@@ -7,19 +7,18 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 	public bool removed = false;
 
 	// Torrent name
-    [GtkChild] private Label name_label;
-    public string name { get; set; }
+	[GtkChild] private Label name_label;
+	public string name { get; set; }
 
 	// Status
 	public Transmission.Activity activity { get; set; }
-	[GtkChild] private Label status_label;
+	public uint eta { get{ return torrent.stat.eta; } }
+	[GtkChild] private Label primary_label;
+	[GtkChild] private Label secondary_label;
 
-	// ETA
-    [GtkChild] private Label eta_label;
-    public uint eta { get{ return torrent.stat.eta; } }
 
 	// Progress
-    [GtkChild] private ProgressBar progress_bar;
+	[GtkChild] private ProgressBar progress_bar;
 	public double progress { get{ return torrent.stat.percentDone; } }
 
 	// Seeders
@@ -249,16 +248,23 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 			mime_type_image.set_from_gicon(ContentType.get_symbolic_icon("text-x-generic"), Gtk.IconSize.MENU);
 	}
 
-	private string generate_activity_text(){
+	private string get_primary_text(){
+		if(downloaded == 0)
+			return format_size(size);
+		else if (downloaded == size)
+			return _("%s · %s uploaded").printf(format_size(size), format_size(uploaded));
+		else
+			return _("%s of %s downloaded").printf(format_size(downloaded), format_size(size));
+	}
+
+	private string get_secondary_text(){
 		string st = "";
 		switch(torrent.stat.activity){
 			case Transmission.Activity.STOPPED: { st = _("Paused"); break;}
-			case Transmission.Activity.SEED: { st = _("%s uploaded · %s".printf(format_size(uploaded), upload_speed)); break;}
-			case Transmission.Activity.SEED_WAIT: { st = _("Queued to seed"); break;}
-			case Transmission.Activity.DOWNLOAD: { st = _("%s of %s downloaded · %s").printf(format_size(downloaded), format_size(size), download_speed); break;}
-			case Transmission.Activity.DOWNLOAD_WAIT: { st = _("Queued to download"); break;}
-			case Transmission.Activity.CHECK: { st = _("Checking files…"); break;}
-			case Transmission.Activity.CHECK_WAIT: { st = _("Queued to check files"); break;}
+			case Transmission.Activity.DOWNLOAD: { if(eta != uint.MAX || eta == 0) st = _("%s left".printf(Utils.time_to_string(eta))); break;}
+			case Transmission.Activity.DOWNLOAD_WAIT: { st = _("Queued"); break;}
+			case Transmission.Activity.CHECK: { st = _("Checking…"); break;}
+			case Transmission.Activity.CHECK_WAIT: { st = _("Queued"); break;}
 		}
 		return st;
 	}
@@ -274,11 +280,9 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 			notify_property("activity");
 		}
 
-		status_label.set_text(generate_activity_text());
-
+		primary_label.set_text(get_primary_text());
+		secondary_label.set_text(get_secondary_text());
 		progress_bar.set_fraction(progress);
-		if(eta != uint.MAX || eta == 0) eta_label.set_text("%s left".printf(Utils.time_to_string(eta)));
-		else eta_label.set_text("");
 
 		download_speed_label.set_text(download_speed);
 		upload_speed_label.set_text(upload_speed);
