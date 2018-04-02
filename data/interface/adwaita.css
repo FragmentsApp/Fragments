@@ -41,6 +41,10 @@
 	color: @theme_selected_fg_color;
 }
 
+.bubble :backdrop{
+	color: @theme_selected_fg_color;
+}
+
 .queued-torrent .bubble{
 	background-color: @insensitive_fg_color;
 }
