@@ -40,3 +40,12 @@
 	background-color: @theme_selected_bg_color;
 	color: @theme_selected_fg_color;
 }
+
+.queued-torrent .bubble{
+	background-color: @insensitive_fg_color;
+}
+
+.queued-torrent progressbar progress{
+	background-color: @insensitive_fg_color;
+	border-color: @insensitive_fg_color;
+}

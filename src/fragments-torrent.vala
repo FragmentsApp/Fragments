@@ -83,6 +83,7 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 	[GtkChild] public EventBox eventbox;
 	[GtkChild] public Stack index_stack;
 	[GtkChild] public Label index_label;
+	private StyleContext scontext;
 
 	public Torrent(Transmission.Torrent torrent){
 		this.torrent = torrent;
@@ -93,6 +94,8 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 		// default activity is STOPPED, so it wouldn't trigger the activity notify for stopped torrents
 		activity = Transmission.Activity.CHECK;
+
+		scontext = this.get_style_context();
 
 		connect_signals();
 		update_information();
@@ -105,13 +108,8 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 	private void connect_signals(){
 		this.notify["activity"].connect(() => {
+			scontext.remove_class("queued-torrent");
 			switch(activity){
-				case Transmission.Activity.STOPPED: {
-					index_stack.set_visible_child_name("stopped");
-					primary_action_stack.set_visible_child_name("continue");
-					secondary_action_stack.set_visible_child_name("remove");
-					break;
-				}
 				case Transmission.Activity.DOWNLOAD: {
 					index_stack.set_visible_child_name("download");
 					primary_action_stack.set_visible_child_name("pause");
@@ -122,18 +120,28 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 					index_stack.set_visible_child_name("indexnumber");
 					primary_action_stack.set_visible_child_name("pause");
 					secondary_action_stack.set_visible_child_name("remove");
+					scontext.add_class("queued-torrent");
 					break;
 				}
 				case Transmission.Activity.CHECK: {
 					index_stack.set_visible_child_name("check");
 					primary_action_stack.set_visible_child_name("pause");
 					secondary_action_stack.set_visible_child_name("remove");
+					scontext.add_class("queued-torrent");
 					break;
 				}
 				case Transmission.Activity.CHECK_WAIT: {
 					index_stack.set_visible_child_name("check");
 					primary_action_stack.set_visible_child_name("pause");
 					secondary_action_stack.set_visible_child_name("remove");
+					scontext.add_class("queued-torrent");
+					break;
+				}
+				case Transmission.Activity.STOPPED: {
+					index_stack.set_visible_child_name("stopped");
+					primary_action_stack.set_visible_child_name("continue");
+					secondary_action_stack.set_visible_child_name("remove");
+					scontext.add_class("queued-torrent");
 					break;
 				}
 				case Transmission.Activity.SEED: {
