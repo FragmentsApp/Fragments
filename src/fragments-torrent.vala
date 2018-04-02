@@ -73,6 +73,7 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 	public bool pause_torrent_update = false;
 
 	// Other
+	[GtkChild] private Box title_box;
 	[GtkChild] private Image mime_type_image;
 	[GtkChild] private Image turboboost_image;
 	[GtkChild] private Revealer revealer;
@@ -83,7 +84,6 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 	[GtkChild] public EventBox eventbox;
 	[GtkChild] public Stack index_stack;
 	[GtkChild] public Label index_label;
-	private StyleContext scontext;
 
 	public Torrent(Transmission.Torrent torrent){
 		this.torrent = torrent;
@@ -94,8 +94,6 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 		// default activity is STOPPED, so it wouldn't trigger the activity notify for stopped torrents
 		activity = Transmission.Activity.CHECK;
-
-		scontext = this.get_style_context();
 
 		connect_signals();
 		update_information();
@@ -108,7 +106,9 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 
 	private void connect_signals(){
 		this.notify["activity"].connect(() => {
-			scontext.remove_class("queued-torrent");
+			this.get_style_context().remove_class("queued-torrent");
+			title_box.get_style_context().remove_class("dim-label");
+
 			switch(activity){
 				case Transmission.Activity.DOWNLOAD: {
 					index_stack.set_visible_child_name("download");
@@ -120,28 +120,35 @@ public class Fragments.Torrent : Gtk.ListBoxRow{
 					index_stack.set_visible_child_name("indexnumber");
 					primary_action_stack.set_visible_child_name("pause");
 					secondary_action_stack.set_visible_child_name("remove");
-					scontext.add_class("queued-torrent");
+
+					this.get_style_context().add_class("queued-torrent");
 					break;
 				}
 				case Transmission.Activity.CHECK: {
 					index_stack.set_visible_child_name("check");
 					primary_action_stack.set_visible_child_name("pause");
 					secondary_action_stack.set_visible_child_name("remove");
-					scontext.add_class("queued-torrent");
+
+					this.get_style_context().add_class("queued-torrent");
+					title_box.get_style_context().add_class("dim-label");
 					break;
 				}
 				case Transmission.Activity.CHECK_WAIT: {
 					index_stack.set_visible_child_name("check");
 					primary_action_stack.set_visible_child_name("pause");
 					secondary_action_stack.set_visible_child_name("remove");
-					scontext.add_class("queued-torrent");
+
+					this.get_style_context().add_class("queued-torrent");
+					title_box.get_style_context().add_class("dim-label");
 					break;
 				}
 				case Transmission.Activity.STOPPED: {
 					index_stack.set_visible_child_name("stopped");
 					primary_action_stack.set_visible_child_name("continue");
 					secondary_action_stack.set_visible_child_name("remove");
-					scontext.add_class("queued-torrent");
+
+					this.get_style_context().add_class("queued-torrent");
+					title_box.get_style_context().add_class("dim-label");
 					break;
 				}
 				case Transmission.Activity.SEED: {

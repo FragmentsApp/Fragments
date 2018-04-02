@@ -3,7 +3,7 @@
   <menu id="app-menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">Settings</attribute>
+        <attribute name="label" translatable="yes">Preferences</attribute>
         <attribute name="action">app.preferences</attribute>
       </item>
     </section>

@@ -133,7 +133,7 @@
                         <property name="orientation">vertical</property>
                         <property name="spacing">3</property>
                         <child>
-                          <object class="GtkBox">
+                          <object class="GtkBox" id="title_box">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="spacing">6</property>
