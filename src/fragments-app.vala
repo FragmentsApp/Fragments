@@ -77,7 +77,7 @@ public class Fragments.App : Gtk.Application {
 		set_app_menu (app_menu);
 	}
 
-        private void show_about_dialog(){
+	private void show_about_dialog(){
 		string[] authors = {
 			"Felix Häcker <haecker.felix1207@gmail.com>"
 		};
@@ -102,7 +102,7 @@ public class Fragments.App : Gtk.Application {
 		// Init gtk
 		Gtk.init(ref args);
 
-	        var app = new App ();
-	        return app.run(args);
-        }
+		var app = new App ();
+		return app.run(args);
+	}
 }
