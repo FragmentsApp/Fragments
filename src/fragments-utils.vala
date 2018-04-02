@@ -18,6 +18,29 @@ public class Fragments.Utils{
                 return "";
 	}
 
+	public static string generate_primary_text(Torrent torrent){
+		if(torrent.downloaded == 0)
+			return format_size(torrent.size);
+		else if (torrent.downloaded == torrent.size)
+			return _("%s uploaded · %s").printf(format_size(torrent.uploaded), torrent.upload_speed);
+		else if (torrent.activity == Transmission.Activity.STOPPED || torrent.activity == Transmission.Activity.DOWNLOAD_WAIT)
+			return _("%s of %s downloaded").printf(format_size(torrent.downloaded), format_size(torrent.size));
+		else
+			return _("%s of %s downloaded · %s").printf(format_size(torrent.downloaded), format_size(torrent.size), torrent.download_speed);
+	}
+
+	public static string generate_secondary_text(Torrent torrent){
+		string st = "";
+		switch(torrent.activity){
+			case Transmission.Activity.STOPPED: { st = _("Paused"); break;}
+			case Transmission.Activity.DOWNLOAD: { if(torrent.eta != uint.MAX || torrent.eta == 0) st = _("%s left".printf(Utils.time_to_string(torrent.eta))); break;}
+			case Transmission.Activity.DOWNLOAD_WAIT: { st = _("Queued"); break;}
+			case Transmission.Activity.CHECK: { st = _("Checking…"); break;}
+			case Transmission.Activity.CHECK_WAIT: { st = _("Queued"); break;}
+		}
+		return st;
+	}
+
 	public static void remove_torrent_from_liststore(ListStore store, Torrent torrent){
 		for(int i = 0; i < store.get_n_items(); i++){
 			if(store.get_object(i) == torrent) store.remove(i);

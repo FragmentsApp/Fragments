@@ -8,23 +8,19 @@ class Fragments.TorrentListBox : ListBox {
 	private int hover_top;
 	private int hover_bottom;
 
-	private bool rearrangeable;
-
-	const TargetEntry[] entries = {
+	public const TargetEntry[] entries = {
 		{ "GTK_LIST_BOX_ROW", Gtk.TargetFlags.SAME_APP, 0}
 	};
 
 	public TorrentListBox (bool rearrangeable) {
-		this.rearrangeable = rearrangeable;
-
 		if(rearrangeable) drag_dest_set (this, Gtk.DestDefaults.ALL, entries, Gdk.DragAction.MOVE);
 
 		this.set_selection_mode(SelectionMode.NONE);
 		this.get_style_context ().add_class ("transparent");
 	}
 
-	private void row_drag_begin (Widget widget, Gdk.DragContext context) {
-		Torrent row = (Torrent) widget.get_ancestor (typeof (Torrent));
+	public void row_drag_begin (Widget widget, Gdk.DragContext context) {
+		TorrentRow row = (TorrentRow) widget.get_ancestor (typeof (TorrentRow));
 		Allocation alloc;
 		row.get_allocation (out alloc);
 
@@ -80,13 +76,13 @@ class Fragments.TorrentListBox : ListBox {
 		return true;
 	}
 
-	private void row_drag_data_get (Widget widget, Gdk.DragContext context, SelectionData selection_data, uint info, uint time_) {
+	public void row_drag_data_get (Widget widget, Gdk.DragContext context, SelectionData selection_data, uint info, uint time_) {
 		uchar[] data = new uchar[(sizeof (Widget))];
 		((Widget[])data)[0] = widget;
 		selection_data.set (Gdk.Atom.intern_static_string ("GTK_LIST_BOX_ROW"), 32, data);
 	}
 
-	private void row_drag_end () {
+	public void row_drag_end () {
 		if (hover_row != null) {
 			hover_row.get_style_context ().remove_class ("drag-hover-top");
 			hover_row.get_style_context ().remove_class ("drag-hover-bottom");
@@ -116,32 +112,9 @@ class Fragments.TorrentListBox : ListBox {
 		drag_row = null;
 	}
 
-	public void insert_torrent (Torrent row, int pos) {
-		if(rearrangeable){
-			drag_source_set (row.eventbox, Gdk.ModifierType.BUTTON1_MASK, entries, Gdk.DragAction.MOVE);
-			row.eventbox.drag_begin.connect (row_drag_begin);
-			row.eventbox.drag_data_get.connect (row_drag_data_get);
-			row.eventbox.drag_end.connect(row_drag_end);
-		}
-
-		this.insert(row, pos);
-		update_index_number();
-	}
-
-	public void remove_torrent (Torrent row) {
-		if(rearrangeable){
-			drag_source_unset (row.eventbox);
-			row.eventbox.drag_begin.disconnect (row_drag_begin);
-			row.eventbox.drag_data_get.disconnect (row_drag_data_get);
-		}
-
-		this.remove(row);
-		update_index_number();
-	}
-
-	private void update_index_number(){
+	public void update_index_number(){
 		this.@foreach ((torrent) => {
-			((Torrent)torrent).index_label.set_text((((Torrent)torrent).get_index()+1).to_string());
+			((TorrentRow)torrent).index_label.set_text((((TorrentRow)torrent).get_index()+1).to_string());
 		});
 	}
 }

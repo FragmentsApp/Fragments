@@ -11,26 +11,37 @@ public class Fragments.TorrentGroup : Gtk.Box{
 	}
 
 	public void add_subgroup(GLib.ListStore torrents, bool rearrangeable){
-		var torrent_listbox = new TorrentListBox(rearrangeable);
-		torrent_listbox.show_all();
 		model_list.append(torrents);
 
-		torrents.items_changed.connect((pos,removed,added) => {
-			if(removed == 1) torrent_listbox.remove_torrent((Torrent)torrent_listbox.get_row_at_index((int)pos));
-			if(added == 1) torrent_listbox.insert_torrent((Torrent)torrents.get_item(pos), (int)pos);
-			update_visibility();
+		var torrent_listbox = new TorrentListBox(rearrangeable);
+		torrent_listbox.bind_model(torrents, (torrent) => {
+			TorrentRow row = new TorrentRow((Torrent)torrent);
+			if(rearrangeable){
+				drag_source_set (row.eventbox, Gdk.ModifierType.BUTTON1_MASK, TorrentListBox.entries, Gdk.DragAction.MOVE);
+				row.eventbox.drag_begin.connect (torrent_listbox.row_drag_begin);
+				row.eventbox.drag_data_get.connect (torrent_listbox.row_drag_data_get);
+				row.eventbox.drag_end.connect(torrent_listbox.row_drag_end);
+			}
+			return row;
 		});
 
 		torrent_listbox.row_activated.connect((row) => {
-			((Torrent)row).toggle_revealer();
+			((TorrentRow)row).toggle_revealer();
+		});
+
+		torrents.items_changed.connect(() => {
+			torrent_listbox.update_index_number();
+			update_visibility();
 		});
 
 		this.pack_start(torrent_listbox, false, true, 0);
+		torrent_listbox.show_all();
 		update_visibility();
 	}
 
 	private void update_visibility(){
 		bool empty = true;
+		message("update visibiley");
 
 		foreach(GLib.ListStore model in model_list){
 			if(model.get_n_items() != 0) empty = false;

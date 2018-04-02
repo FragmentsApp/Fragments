@@ -119,11 +119,6 @@ public class Fragments.TorrentManager{
 		Utils.remove_torrent_from_liststore(seed_wait_torrents, torrent);
 		Utils.remove_torrent_from_liststore(seed_torrents, torrent);
 
-		if(torrent.removed == true){
-			torrent.destroy();
-			return;
-		}
-
 		switch(torrent.activity){
 			case Transmission.Activity.STOPPED: stopped_torrents.append(torrent); break;
 			case Transmission.Activity.CHECK_WAIT: check_wait_torrents.append(torrent); break;
@@ -133,7 +128,5 @@ public class Fragments.TorrentManager{
 			case Transmission.Activity.SEED_WAIT: seed_wait_torrents.append(torrent); break;
 			case Transmission.Activity.SEED: seed_torrents.append(torrent); break;
 		}
-
-		torrent.show_all();
 	}
 }

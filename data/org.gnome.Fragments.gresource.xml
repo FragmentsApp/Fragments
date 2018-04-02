@@ -3,7 +3,7 @@
   <gresource prefix="/org/gnome/Fragments/">
     <file>ui/window.ui</file>
     <file>ui/settings-window.ui</file>
-    <file>ui/torrent.ui</file>
+    <file>ui/torrent-row.ui</file>
     <file>ui/torrent-group.ui</file>
     <file>interface/adwaita.css</file>
     <file>interface/app-menu.ui</file>

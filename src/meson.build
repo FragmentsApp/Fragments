@@ -6,6 +6,7 @@ vala_sources = [
   'fragments-torrent-manager.vala',
   'fragments-torrent-listbox.vala',
   'fragments-settings-window.vala',
+  'fragments-torrent-row.vala',
   'fragments-settings.vala',
   'fragments-window.vala'
 ]
