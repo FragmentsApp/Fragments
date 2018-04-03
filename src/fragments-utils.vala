@@ -41,12 +41,6 @@ public class Fragments.Utils{
 		return st;
 	}
 
-	public static void remove_torrent_from_liststore(ListStore store, Torrent torrent){
-		for(int i = 0; i < store.get_n_items(); i++){
-			if(store.get_object(i) == torrent) store.remove(i);
-		}
-	}
-
 	public static string get_clipboard_text(Window window){
 		Gdk.Display display = window.get_display ();
 		Gtk.Clipboard clipboard = Gtk.Clipboard.get_for_display (display, Gdk.SELECTION_CLIPBOARD);

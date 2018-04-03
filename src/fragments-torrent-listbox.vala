@@ -12,6 +12,8 @@ class Fragments.TorrentListBox : ListBox {
 		{ "GTK_LIST_BOX_ROW", Gtk.TargetFlags.SAME_APP, 0}
 	};
 
+	public signal void torrent_row_move(uint old_index, uint new_index);
+
 	public TorrentListBox (bool rearrangeable) {
 		if(rearrangeable) drag_dest_set (this, Gtk.DestDefaults.ALL, entries, Gdk.DragAction.MOVE);
 
@@ -103,11 +105,7 @@ class Fragments.TorrentListBox : ListBox {
 			handle = ((Widget[])selection_data.get_data ())[0];
 			row = (ListBoxRow) handle.get_ancestor (typeof (ListBoxRow));
 
-			if (row != hover_row) {
-			 	this.remove (row);
-			 	this.insert (row, index);
-				update_index_number();
-			}
+			if (row != hover_row) torrent_row_move(row.get_index(), index);
 		}
 		drag_row = null;
 	}

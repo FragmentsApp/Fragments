@@ -57,7 +57,7 @@ public class Fragments.Torrent : Object{
 
 		if(activity != torrent.stat.activity){
 			activity = torrent.stat.activity;
-			notify_property("activity");
+			notify_property("activity"); //TODO: why?
 		}
 
 		name = torrent.name; notify_property("name");

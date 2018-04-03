@@ -5,13 +5,13 @@ public class Fragments.TorrentManager{
 
 	private static string CONFIG_DIR = GLib.Path.build_path(GLib.Path.DIR_SEPARATOR_S, Environment.get_user_config_dir(), "fragments");
 
-	public GLib.ListStore stopped_torrents;
-	public GLib.ListStore check_wait_torrents;
-	public GLib.ListStore check_torrents;
-	public GLib.ListStore download_wait_torrents;
-	public GLib.ListStore download_torrents;
-	public GLib.ListStore seed_torrents;
-	public GLib.ListStore seed_wait_torrents;
+	public TorrentModel stopped_torrents;
+	public TorrentModel check_wait_torrents;
+	public TorrentModel check_torrents;
+	public TorrentModel download_wait_torrents;
+	public TorrentModel download_torrents;
+	public TorrentModel seed_torrents;
+	public TorrentModel seed_wait_torrents;
 
 	public TorrentManager(){
 		Transmission.String.Units.mem_init(1024, _("KB"), _("MB"), _("GB"), _("TB"));
@@ -24,13 +24,13 @@ public class Fragments.TorrentManager{
 		if(App.settings.download_folder == "") App.settings.download_folder = Environment.get_user_special_dir(GLib.UserDirectory.DOWNLOAD);
 		if(App.settings.incomplete_folder == "") App.settings.incomplete_folder = Path.build_path (Path.DIR_SEPARATOR_S, Environment.get_user_cache_dir(), "fragments", "incomplete_torrents").to_string();
 
-		stopped_torrents = new GLib.ListStore(typeof (Torrent));
-		check_wait_torrents = new GLib.ListStore(typeof (Torrent));
-		check_torrents = new GLib.ListStore(typeof (Torrent));
-		download_wait_torrents = new GLib.ListStore(typeof (Torrent));
-		download_torrents = new GLib.ListStore(typeof (Torrent));
-		seed_torrents = new GLib.ListStore(typeof (Torrent));
-		seed_wait_torrents = new GLib.ListStore(typeof (Torrent));
+		stopped_torrents = new TorrentModel();
+		check_wait_torrents = new TorrentModel();
+		check_torrents = new TorrentModel();
+		download_wait_torrents = new TorrentModel();
+		download_torrents = new TorrentModel();
+		seed_torrents = new TorrentModel();
+		seed_wait_torrents = new TorrentModel();
 
 		update_transmission_settings();
 		connect_signals();
@@ -111,22 +111,22 @@ public class Fragments.TorrentManager{
 	}
 
 	private void update_torrent(Torrent torrent){
-		Utils.remove_torrent_from_liststore(stopped_torrents, torrent);
-		Utils.remove_torrent_from_liststore(check_wait_torrents, torrent);
-		Utils.remove_torrent_from_liststore(check_torrents, torrent);
-		Utils.remove_torrent_from_liststore(download_wait_torrents, torrent);
-		Utils.remove_torrent_from_liststore(download_torrents, torrent);
-		Utils.remove_torrent_from_liststore(seed_wait_torrents, torrent);
-		Utils.remove_torrent_from_liststore(seed_torrents, torrent);
+		stopped_torrents.remove_torrent(torrent);
+		check_wait_torrents.remove_torrent(torrent);
+		check_torrents.remove_torrent(torrent);
+		download_wait_torrents.remove_torrent(torrent);
+		download_torrents.remove_torrent(torrent);
+		seed_wait_torrents.remove_torrent(torrent);
+		seed_torrents.remove_torrent(torrent);
 
 		switch(torrent.activity){
-			case Transmission.Activity.STOPPED: stopped_torrents.append(torrent); break;
-			case Transmission.Activity.CHECK_WAIT: check_wait_torrents.append(torrent); break;
-			case Transmission.Activity.CHECK: check_torrents.append(torrent); break;
-			case Transmission.Activity.DOWNLOAD_WAIT: download_wait_torrents.append(torrent); break;
-			case Transmission.Activity.DOWNLOAD: download_torrents.append(torrent); break;
-			case Transmission.Activity.SEED_WAIT: seed_wait_torrents.append(torrent); break;
-			case Transmission.Activity.SEED: seed_torrents.append(torrent); break;
+			case Transmission.Activity.STOPPED: stopped_torrents.add_torrent(torrent); break;
+			case Transmission.Activity.CHECK_WAIT: check_wait_torrents.add_torrent(torrent); break;
+			case Transmission.Activity.CHECK: check_torrents.add_torrent(torrent); break;
+			case Transmission.Activity.DOWNLOAD_WAIT: download_wait_torrents.add_torrent(torrent); break;
+			case Transmission.Activity.DOWNLOAD: download_torrents.add_torrent(torrent); break;
+			case Transmission.Activity.SEED_WAIT: seed_wait_torrents.add_torrent(torrent); break;
+			case Transmission.Activity.SEED: seed_torrents.add_torrent(torrent); break;
 		}
 	}
 }
