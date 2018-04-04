@@ -1,3 +1,14 @@
+//
+// Original file: Andre Masella
+// https://github.com/apmasell/vapis/blob/master/transmission-2.0.vapi
+//
+// Used in Torrential: David Hewitt
+// https://github.com/davidmhewitt/torrential/blob/master/vapi/transmission-2.0.vapis
+//
+// Some tweaks by me:
+// + Torrent queue support
+//
+
 [CCode (cheader_filename = "libtransmission/transmission.h", lower_case_cprefix = "tr_", cprefix = "TR_")]
 namespace Transmission {
 
