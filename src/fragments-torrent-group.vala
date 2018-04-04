@@ -14,7 +14,6 @@ public class Fragments.TorrentGroup : Gtk.Box{
 		model_list.append(torrents);
 
 		var torrent_listbox = new TorrentListBox(rearrangeable);
-
 		torrent_listbox.bind_model(torrents, (torrent) => {
 			TorrentRow row = new TorrentRow((Torrent)torrent);
 			if(rearrangeable){
@@ -29,8 +28,10 @@ public class Fragments.TorrentGroup : Gtk.Box{
 		torrent_listbox.row_activated.connect((row) => { ((TorrentRow)row).toggle_revealer(); });
 		torrent_listbox.torrent_row_move.connect(torrents.move_item);
 		torrent_listbox.show_all();
+		torrent_listbox.update_index_number();
 
 		torrents.items_changed.connect(() => {
+			message("items changed");
 			torrent_listbox.update_index_number();
 			update_visibility();
 		});

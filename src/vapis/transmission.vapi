@@ -2040,6 +2040,10 @@ namespace Transmission {
 		 *  A torrent is considered finished if it has met its seed ratio. As a result, only paused torrents can be finished.
 		 */
 		public bool finished;
+		/**
+		 *  All torrents have a queue position, even if it's not queued
+		 */
+		public int queuePosition;
 	}
 
 	[CCode (cname = "tr_torrent", cprefix = "tr_torrent", free_function = "tr_free", has_type_id = false)]
@@ -2363,6 +2367,13 @@ namespace Transmission {
 		 */
 		public stat? stat_cached {
 			[CCode (cname = "tr_torrentStatCached")]
+			get;
+		}
+
+		public int queue_position {
+			[CCode (cname = "tr_torrentSetQueuePosition")]
+			set;
+			[CCode (cname = "tr_torrentGetQueuePosition")]
 			get;
 		}
 	}

@@ -3,7 +3,7 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Fragments/ui/torrent-row.ui")]
 public class Fragments.TorrentRow : Gtk.ListBoxRow{
 
-	private Torrent torrent;
+	private unowned Torrent torrent;
 
 	[GtkChild] private Label name_label;
 	[GtkChild] private Label primary_label;
@@ -31,65 +31,37 @@ public class Fragments.TorrentRow : Gtk.ListBoxRow{
 	[GtkChild] public Stack index_stack;
 	[GtkChild] public Label index_label;
 
-	// Update interval
-	private const int search_delay = 1;
-	private uint delayed_changed_id;
-	public bool pause_torrent_update = false; // Don't update torrent information. Useful for dnd
-
 	public TorrentRow(Torrent torrent){
 		this.torrent = torrent;
 		connect_signals();
-		reset_timeout();
 		set_mime_type_image();
 		update_activity();
 	}
 
 	private void connect_signals(){
-		torrent.notify["name"].connect(() => { name_label.set_text(torrent.name); });
-		torrent.notify["progress"].connect(() => { progress_bar.set_fraction(torrent.progress); });
-		torrent.notify["seeders_active"].connect(() => { seeders_label.set_text(_("%i (%i active)").printf(torrent.seeders, torrent.seeders_active)); });
-		torrent.notify["seeders"].connect(() => { seeders_label.set_text(_("%i (%i active)").printf(torrent.seeders, torrent.seeders_active)); });
-		torrent.notify["leechers"].connect(() => { leechers_label.set_text(torrent.leechers.to_string()); });
-		torrent.notify["downloaded"].connect(() => { downloaded_label.set_text(format_size(torrent.downloaded)); });
-		torrent.notify["uploaded"].connect(() => { uploaded_label.set_text(format_size(torrent.uploaded)); });
-		torrent.notify["download-speed"].connect(() => { download_speed_label.set_text(torrent.download_speed); });
-		torrent.notify["upload-speed"].connect(() => { upload_speed_label.set_text(torrent.upload_speed); });
-
-		torrent.information_updated.connect(() => {
-			primary_label.set_text(Utils.generate_primary_text(torrent));
-			secondary_label.set_text(Utils.generate_secondary_text(torrent));
-		});
-
-
 		torrent.notify["activity"].connect(update_activity);
 
-		eventbox.drag_begin.connect(() => {
-			Timeout.add(1, () =>{ this.set_visible(false); return false; });
-			pause_torrent_update = true;
-		});
-
-		eventbox.drag_end.connect(() => {
-			this.set_visible(true);
-			pause_torrent_update = false;
-		});
-
-		pause_button.clicked.connect(() => { torrent.pause(); });
-		pause2_button.clicked.connect(() => { torrent.pause(); });
-
-		remove_button.clicked.connect(remove_torrent);
-		remove2_button.clicked.connect(remove_torrent);
+		torrent.bind_property ("name", name_label, "label", BindingFlags.SYNC_CREATE);
+		torrent.bind_property("progress", progress_bar, "fraction", BindingFlags.SYNC_CREATE);
+		torrent.bind_property("leechers", leechers_label, "label", BindingFlags.SYNC_CREATE);
+		torrent.bind_property("downloaded", downloaded_label, "label", BindingFlags.SYNC_CREATE);
+		torrent.bind_property("uploaded", uploaded_label, "label", BindingFlags.SYNC_CREATE);
+		torrent.bind_property("download-speed", download_speed_label, "label", BindingFlags.SYNC_CREATE);
+		torrent.bind_property("upload-speed", upload_speed_label, "label", BindingFlags.SYNC_CREATE);
+		torrent.bind_property("primary-text",  primary_label, "label", BindingFlags.SYNC_CREATE);
+		torrent.bind_property("secondary-text",  secondary_label, "label", BindingFlags.SYNC_CREATE);
+		torrent.bind_property("seeders-text",  seeders_label, "label", BindingFlags.SYNC_CREATE);
 
 		continue_button.clicked.connect(() => { torrent.unpause(); });
+		pause_button.clicked.connect(() => { torrent.pause(); });
+		pause2_button.clicked.connect(() => { torrent.pause(); });
+		remove_button.clicked.connect(remove_torrent);
+		remove2_button.clicked.connect(remove_torrent);
 
 		manual_update_button.clicked.connect(() => {
 			if(torrent.can_manual_update()) torrent.manual_update();
 			else manual_update_button.set_sensitive(false);
 		});
-	}
-
-	private void reset_timeout(){
-		if(delayed_changed_id > 0) Source.remove(delayed_changed_id);
-		delayed_changed_id = Timeout.add_seconds(search_delay, () => { torrent.update_information(); reset_timeout(); return false; });
 	}
 
 	public void toggle_revealer (){
@@ -114,7 +86,6 @@ public class Fragments.TorrentRow : Gtk.ListBoxRow{
 			if(response_id == 1){
 				torrent.remove(checkbutton.active);
 				torrent = null;
-				notify_property("activity");
 			}
 			msg.destroy();
 		});

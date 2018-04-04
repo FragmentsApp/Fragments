@@ -2,7 +2,6 @@ public class Fragments.TorrentManager{
 
 	private Transmission.variant_dict settings;
 	private Transmission.Session session;
-
 	private static string CONFIG_DIR = GLib.Path.build_path(GLib.Path.DIR_SEPARATOR_S, Environment.get_user_config_dir(), "fragments");
 
 	public TorrentModel stopped_torrents;
@@ -33,6 +32,8 @@ public class Fragments.TorrentManager{
 		seed_wait_torrents = new TorrentModel();
 
 		update_transmission_settings();
+		restore_torrents();
+
 		connect_signals();
 	}
 
@@ -44,6 +45,13 @@ public class Fragments.TorrentManager{
 
 	private void connect_signals(){
 		App.settings.notify["max-downloads"].connect(update_transmission_settings);
+		download_wait_torrents.items_changed.connect(() => {
+			message("Update torrent queue...");
+			for(int i = 0; i < download_wait_torrents.get_n_items(); i++){
+				Torrent torrent = (Torrent)download_wait_torrents.get_item(i);
+				torrent.queue_position = i;
+			}
+		});
 	}
 
 	private void update_transmission_settings(){
@@ -51,13 +59,15 @@ public class Fragments.TorrentManager{
 		settings.add_int (Transmission.Prefs.download_queue_size, App.settings.max_downloads);
 		settings.add_str(Transmission.Prefs.download_dir, App.settings.download_folder);
 		settings.add_str(Transmission.Prefs.incomplete_dir, App.settings.incomplete_folder);
+		settings.add_bool(Transmission.Prefs.rpc_enabled, true);
 
 		message("Save session settings...");
 		session.save_settings(CONFIG_DIR, settings);
 		session.update_settings (settings);
 	}
 
-	public void restore_torrents(){
+	private void restore_torrents(){
+		message("Restore old torrents...");
 		var torrent_constructor = new Transmission.TorrentConstructor (session);
 		unowned Transmission.Torrent[] transmission_torrents = session.load_torrents (torrent_constructor);
 		for (int i = 0; i < transmission_torrents.length; i++) {
@@ -118,6 +128,10 @@ public class Fragments.TorrentManager{
 		download_torrents.remove_torrent(torrent);
 		seed_wait_torrents.remove_torrent(torrent);
 		seed_torrents.remove_torrent(torrent);
+
+		if(torrent.removed){
+			return;
+		}
 
 		switch(torrent.activity){
 			case Transmission.Activity.STOPPED: stopped_torrents.add_torrent(torrent); break;

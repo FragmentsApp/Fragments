@@ -19,14 +19,14 @@ public class Fragments.Utils{
 	}
 
 	public static string generate_primary_text(Torrent torrent){
-		if(torrent.downloaded == 0)
-			return format_size(torrent.size);
+		if(torrent.downloaded == "0")
+			return torrent.size;
 		else if (torrent.downloaded == torrent.size)
-			return _("%s uploaded · %s").printf(format_size(torrent.uploaded), torrent.upload_speed);
+			return _("%s uploaded · %s").printf(torrent.uploaded, torrent.upload_speed);
 		else if (torrent.activity == Transmission.Activity.STOPPED || torrent.activity == Transmission.Activity.DOWNLOAD_WAIT)
-			return _("%s of %s downloaded").printf(format_size(torrent.downloaded), format_size(torrent.size));
+			return _("%s of %s downloaded").printf(torrent.downloaded, torrent.size);
 		else
-			return _("%s of %s downloaded · %s").printf(format_size(torrent.downloaded), format_size(torrent.size), torrent.download_speed);
+			return _("%s of %s downloaded · %s").printf(torrent.downloaded, torrent.size, torrent.download_speed);
 	}
 
 	public static string generate_secondary_text(Torrent torrent){

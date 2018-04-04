@@ -3,7 +3,9 @@ using Gtk;
 public class Fragments.Torrent : Object{
 
 	private unowned Transmission.Torrent torrent;
+	public bool removed = false;
 
+	public int id { get{ return torrent.id; } }
 	public string name { get; set; }
 	public Transmission.Activity activity { get; set; }
 	public uint eta { get; set; }
@@ -11,18 +13,30 @@ public class Fragments.Torrent : Object{
 	public int seeders_active { get; set; }
 	public int seeders { get; set; }
 	public int leechers { get; set; }
-	public uint64 downloaded { get; set; }
-	public uint64 uploaded { get; set; }
+	public string downloaded { get; set; }
+	public string uploaded { get; set; }
 	public string download_speed { get; set; }
 	public string upload_speed { get; set; }
-	public uint64 size { get; set; }
+	public string size { get; set; }
+	public int queue_position {	set{ torrent.queue_position = value; } }
 
-	public signal void information_updated();
+	public string primary_text { get; set; }
+	public string secondary_text { get; set; }
+	public string seeders_text { get; set; }
+
+	// Update interval
+	private const int search_delay = 1;
+	private uint delayed_changed_id;
+	public bool pause_torrent_update = false; // Don't update torrent information. Useful for dnd
 
 	public Torrent(Transmission.Torrent torrent){
 		this.torrent = torrent;
 		update_information();
-		notify_property("activity");
+	}
+
+	private void reset_timeout(){
+		if(delayed_changed_id > 0) Source.remove(delayed_changed_id);
+		delayed_changed_id = Timeout.add_seconds(search_delay, () => { update_information(); return false; });
 	}
 
 	public void pause(){
@@ -34,7 +48,10 @@ public class Fragments.Torrent : Object{
 	}
 
 	public void remove(bool remove_downloaded_data){
+		removed = true;
+		notify_property("activity");
 		torrent.remove(remove_downloaded_data, null);
+		torrent = null;
 	}
 
 	public bool can_manual_update(){
@@ -55,25 +72,25 @@ public class Fragments.Torrent : Object{
 			return;
 		}
 
-		if(activity != torrent.stat.activity){
-			activity = torrent.stat.activity;
-			notify_property("activity"); //TODO: why?
-		}
+		activity = torrent.stat.activity;
+		name = torrent.name;
+		eta = torrent.stat.eta;
+		progress = torrent.stat.percentDone;
+		seeders_active = torrent.stat.peersSendingToUs;
+		seeders = torrent.stat.peersConnected;
+		leechers = torrent.stat.peersGettingFromUs;
+		downloaded = format_size(torrent.stat.haveValid);
+		uploaded = format_size(torrent.stat.uploadedEver);
+		size = format_size(torrent.stat.sizeWhenDone);
 
-		name = torrent.name; notify_property("name");
-		eta = torrent.stat.eta; notify_property("eta");
-		progress = torrent.stat.percentDone; notify_property("progress");
-		seeders_active = torrent.stat.peersSendingToUs; notify_property("seeders-active");
-		seeders = torrent.stat.peersConnected; notify_property("seeders");
-		leechers = torrent.stat.peersGettingFromUs; notify_property("leechers");
-		downloaded = torrent.stat.haveValid; notify_property("downloaded");
-		uploaded = torrent.stat.uploadedEver; notify_property("uploaded");
-		size = torrent.stat.sizeWhenDone; notify_property("size");
+		primary_text = Utils.generate_primary_text(this);
+		secondary_text = Utils.generate_secondary_text(this);
+		seeders_text = _("%i (%i active)").printf(seeders, seeders_active);
 
 		char[40] buf = new char[40];
 		download_speed = Transmission.String.Units.speed_KBps (buf, torrent.stat.pieceDownloadSpeed_KBps); notify_property("download-speed");
 		upload_speed = Transmission.String.Units.speed_KBps (buf, torrent.stat.pieceUploadSpeed_KBps); notify_property("upload-speed");
 
-		information_updated();
+		reset_timeout();
 	}
 }

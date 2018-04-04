@@ -41,6 +41,7 @@ class Fragments.TorrentListBox : ListBox {
 		widget.translate_coordinates (row, 0, 0, out x, out y);
 		surface.set_device_offset (-x, -y);
 		drag_set_icon_surface (context, surface);
+		row.set_visible(false);
 	}
 
 	public override bool drag_motion (Gdk.DragContext context, int x, int y, uint time_) {
@@ -85,6 +86,7 @@ class Fragments.TorrentListBox : ListBox {
 	}
 
 	public void row_drag_end () {
+		drag_row.set_visible(true);
 		if (hover_row != null) {
 			hover_row.get_style_context ().remove_class ("drag-hover-top");
 			hover_row.get_style_context ().remove_class ("drag-hover-bottom");

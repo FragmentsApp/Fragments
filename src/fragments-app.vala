@@ -27,9 +27,6 @@ public class Fragments.App : Gtk.Application {
 	protected override void activate (){
 		ensure_window();
 		window.present();
-
-		// restore old torrents
-		manager.restore_torrents();
 	}
 
 	public override void open (File[] files, string hint) {
