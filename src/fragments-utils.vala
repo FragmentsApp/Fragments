@@ -19,9 +19,7 @@ public class Fragments.Utils{
 	}
 
 	public static string generate_primary_text(Torrent torrent){
-		if(torrent.downloaded == "0")
-			return torrent.size;
-		else if (torrent.downloaded == torrent.size)
+		if (torrent.downloaded == torrent.size)
 			return _("%s uploaded · %s").printf(torrent.uploaded, torrent.upload_speed);
 		else if (torrent.activity == Transmission.Activity.STOPPED || torrent.activity == Transmission.Activity.DOWNLOAD_WAIT)
 			return _("%s of %s downloaded").printf(torrent.downloaded, torrent.size);

@@ -45,13 +45,7 @@ public class Fragments.TorrentManager{
 
 	private void connect_signals(){
 		App.settings.notify["max-downloads"].connect(update_transmission_settings);
-		download_wait_torrents.items_changed.connect(() => {
-			message("Update torrent queue...");
-			for(int i = 0; i < download_wait_torrents.get_n_items(); i++){
-				Torrent torrent = (Torrent)download_wait_torrents.get_item(i);
-				torrent.queue_position = i;
-			}
-		});
+		download_wait_torrents.items_changed.connect(update_torrent_queue);
 	}
 
 	private void update_transmission_settings(){
@@ -141,6 +135,14 @@ public class Fragments.TorrentManager{
 			case Transmission.Activity.DOWNLOAD: download_torrents.add_torrent(torrent); break;
 			case Transmission.Activity.SEED_WAIT: seed_wait_torrents.add_torrent(torrent); break;
 			case Transmission.Activity.SEED: seed_torrents.add_torrent(torrent); break;
+		}
+	}
+
+	private void update_torrent_queue(){
+		message("Update torrent queue...");
+		for(int i = 0; i < download_wait_torrents.get_n_items(); i++){
+			Torrent torrent = (Torrent)download_wait_torrents.get_item(i);
+			torrent.queue_position = i;
 		}
 	}
 }

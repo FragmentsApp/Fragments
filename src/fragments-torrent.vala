@@ -25,18 +25,21 @@ public class Fragments.Torrent : Object{
 	public string seeders_text { get; set; }
 
 	// Update interval
-	private const int search_delay = 1;
-	private uint delayed_changed_id;
 	public bool pause_torrent_update = false; // Don't update torrent information. Useful for dnd
 
 	public Torrent(Transmission.Torrent torrent){
 		this.torrent = torrent;
-		update_information();
+
+		update_torrent_activity();
+		update_torrent_information();
 	}
 
-	private void reset_timeout(){
-		if(delayed_changed_id > 0) Source.remove(delayed_changed_id);
-		delayed_changed_id = Timeout.add_seconds(search_delay, () => { update_information(); return false; });
+	private void reset_activity_timeout(){
+		Timeout.add(100, () => { update_torrent_activity(); return false; });
+	}
+
+	private void reset_information_timeout(){
+		Timeout.add_seconds(2, () => { update_torrent_information(); return false; });
 	}
 
 	public void pause(){
@@ -66,31 +69,41 @@ public class Fragments.Torrent : Object{
 		return torrent.info;
 	}
 
-	public void update_information(){
+	public void update_torrent_activity(){
 		if(torrent == null || torrent.stat == null){
 			warning("Torrent %s: torrent or stat is NULL", name);
 			return;
 		}
 
-		activity = torrent.stat.activity;
+		activity = torrent.stat_cached.activity;
+		progress = torrent.stat_cached.percentDone;
+		secondary_text = Utils.generate_secondary_text(this);
+
+		reset_activity_timeout();
+	}
+
+	public void update_torrent_information(){
+		if(torrent == null || torrent.stat == null){
+			warning("Torrent %s: torrent or stat is NULL", name);
+			return;
+		}
+
 		name = torrent.name;
-		eta = torrent.stat.eta;
-		progress = torrent.stat.percentDone;
-		seeders_active = torrent.stat.peersSendingToUs;
-		seeders = torrent.stat.peersConnected;
-		leechers = torrent.stat.peersGettingFromUs;
-		downloaded = format_size(torrent.stat.haveValid);
-		uploaded = format_size(torrent.stat.uploadedEver);
-		size = format_size(torrent.stat.sizeWhenDone);
+		eta = torrent.stat_cached.eta;
+		seeders_active = torrent.stat_cached.peersSendingToUs;
+		seeders = torrent.stat_cached.peersConnected;
+		leechers = torrent.stat_cached.peersGettingFromUs;
+		downloaded = format_size(torrent.stat_cached.haveValid);
+		uploaded = format_size(torrent.stat_cached.uploadedEver);
+		size = format_size(torrent.stat_cached.sizeWhenDone);
 
 		primary_text = Utils.generate_primary_text(this);
-		secondary_text = Utils.generate_secondary_text(this);
 		seeders_text = _("%i (%i active)").printf(seeders, seeders_active);
 
 		char[40] buf = new char[40];
-		download_speed = Transmission.String.Units.speed_KBps (buf, torrent.stat.pieceDownloadSpeed_KBps); notify_property("download-speed");
-		upload_speed = Transmission.String.Units.speed_KBps (buf, torrent.stat.pieceUploadSpeed_KBps); notify_property("upload-speed");
+		download_speed = Transmission.String.Units.speed_KBps (buf, torrent.stat_cached.pieceDownloadSpeed_KBps); notify_property("download-speed");
+		upload_speed = Transmission.String.Units.speed_KBps (buf, torrent.stat_cached.pieceUploadSpeed_KBps); notify_property("upload-speed");
 
-		reset_timeout();
+		reset_information_timeout();
 	}
 }
