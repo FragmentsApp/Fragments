@@ -1,4 +1,4 @@
-public class Fragments.TorrentManager{
+public class Fragments.TorrentManager : Object{
 
 	private Transmission.variant_dict settings;
 	private Transmission.Session session;
@@ -11,6 +11,8 @@ public class Fragments.TorrentManager{
 	public TorrentModel download_torrents;
 	public TorrentModel seed_torrents;
 	public TorrentModel seed_wait_torrents;
+
+	public uint torrent_count {get; set;}
 
 	public TorrentManager(){
 		Transmission.String.Units.mem_init(1024, _("KB"), _("MB"), _("GB"), _("TB"));
@@ -44,6 +46,14 @@ public class Fragments.TorrentManager{
 	}
 
 	private void connect_signals(){
+		stopped_torrents.items_changed.connect(update_torrent_count);
+		check_wait_torrents.items_changed.connect(update_torrent_count);
+		check_torrents.items_changed.connect(update_torrent_count);
+		download_wait_torrents.items_changed.connect(update_torrent_count);
+		download_torrents.items_changed.connect(update_torrent_count);
+		seed_torrents.items_changed.connect(update_torrent_count);
+		seed_wait_torrents.items_changed.connect(update_torrent_count);
+
 		App.settings.notify["max-downloads"].connect(update_transmission_settings);
 		download_wait_torrents.items_changed.connect(update_torrent_queue);
 	}
@@ -136,6 +146,16 @@ public class Fragments.TorrentManager{
 			case Transmission.Activity.SEED_WAIT: seed_wait_torrents.add_torrent(torrent); break;
 			case Transmission.Activity.SEED: seed_torrents.add_torrent(torrent); break;
 		}
+	}
+
+	private void update_torrent_count(){
+		torrent_count = stopped_torrents.get_n_items()
+			+ check_wait_torrents.get_n_items()
+			+ check_torrents.get_n_items()
+			+ download_wait_torrents.get_n_items()
+			+ download_torrents.get_n_items()
+			+ seed_wait_torrents.get_n_items()
+			+ seed_torrents.get_n_items();
 	}
 
 	private void update_torrent_queue(){

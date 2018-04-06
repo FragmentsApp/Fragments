@@ -7,6 +7,7 @@ public class Fragments.Window : Gtk.ApplicationWindow {
 	[GtkChild] private Gtk.Box torrent_group_box;
 
 	[GtkChild] private Stack notification_stack;
+	[GtkChild] private Stack window_stack;
 	[GtkChild] private Label magnet_notification_label;
 	[GtkChild] private Revealer notification_revealer;
 
@@ -42,6 +43,12 @@ public class Fragments.Window : Gtk.ApplicationWindow {
 
 	private void connect_signals(){
 		App.settings.notify["enable-dark-theme"].connect(update_gtk_theme);
+		manager.notify["torrent-count"].connect(() => {
+			if(manager.torrent_count == 0)
+				window_stack.set_visible_child_name("empty");
+			else
+				window_stack.set_visible_child_name("content");
+		});
 		this.focus_in_event.connect(check_for_magnet_link);
 	}
 
