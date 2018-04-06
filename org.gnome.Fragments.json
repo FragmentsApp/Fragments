@@ -16,9 +16,6 @@
 	"--talk-name=ca.desrt.dconf",
 	"--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
-    "build-options" : {
-        "build-args" : ["--share=network"]
-    },
     "cleanup" : [
         "/include",
         "/lib/pkgconfig",
