@@ -5,7 +5,7 @@
     "sdk" : "org.gnome.Sdk",
     "command" : "fragments",
     "finish-args" : [
-       " --filesystem=home",
+        "--filesystem=home",
         "--device=dri",
         "--share=network",
         "--share=ipc",
