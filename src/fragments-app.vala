@@ -82,7 +82,7 @@ public class Fragments.App : Gtk.Application {
 		Gtk.show_about_dialog (window,
 			logo_icon_name: "org.gnome.Fragments",
 			program_name: "Fragments",
-			comments: _("A simple torrent manager"),
+			comments: _("A BitTorrent Client"),
 			authors: authors,
 			artists: artists,
 			website: "https://github.com/FragmentsApp/Fragments",
@@ -92,7 +92,6 @@ public class Fragments.App : Gtk.Application {
 	}
 
 	public static int main (string[] args){
-		// Init gtk
 		Gtk.init(ref args);
 
 		var app = new App ();

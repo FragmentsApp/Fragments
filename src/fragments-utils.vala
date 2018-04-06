@@ -31,7 +31,10 @@ public class Fragments.Utils{
 		string st = "";
 		switch(torrent.activity){
 			case Transmission.Activity.STOPPED: { st = _("Paused"); break;}
-			case Transmission.Activity.DOWNLOAD: { if(torrent.eta != uint.MAX || torrent.eta == 0) st = _("%s left".printf(Utils.time_to_string(torrent.eta))); break;}
+			case Transmission.Activity.DOWNLOAD: {
+				if(torrent.eta != uint.MAX && torrent.eta != 0 && torrent.eta != 4294967294)
+					st = _("%s left".printf(Utils.time_to_string(torrent.eta)));
+				break;}
 			case Transmission.Activity.DOWNLOAD_WAIT: { st = _("Queued"); break;}
 			case Transmission.Activity.CHECK: { st = _("Checking…"); break;}
 			case Transmission.Activity.CHECK_WAIT: { st = _("Queued"); break;}
