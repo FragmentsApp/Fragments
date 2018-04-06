@@ -18,13 +18,13 @@
 
   <screenshots>
     <screenshot type="default">
-      <image width="797" height="532">https://raw.githubusercontent.com/haecker-felix/Fragments/master/data/screenshots/1.png</image>
+      <image width="745" height="480">https://raw.githubusercontent.com/haecker-felix/Fragments/master/data/screenshots/1.png</image>
     </screenshot>
     <screenshot>
-      <image width="797" height="532">https://raw.githubusercontent.com/haecker-felix/Fragments/master/data/screenshots/2.png</image>
+      <image width="745" height="480">https://raw.githubusercontent.com/haecker-felix/Fragments/master/data/screenshots/2.png</image>
     </screenshot>
     <screenshot>
-      <image width="797" height="532">https://raw.githubusercontent.com/haecker-felix/Fragments/master/data/screenshots/3.png</image>
+      <image width="745" height="480">https://raw.githubusercontent.com/haecker-felix/Fragments/master/data/screenshots/3.png</image>
     </screenshot>
   </screenshots>
 
