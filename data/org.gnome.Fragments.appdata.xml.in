@@ -33,4 +33,21 @@
     <kudo>Notifications</kudo>
   </kudos>
 
+  <releases>
+    <release version="1.0" date="2018-04-06">
+      <description>
+        <p>
+          This is the first stable release of Fragments.
+        </p>
+        <ul>
+          <li>Support for torrent files</li>
+          <li>Support for magnet links</li>
+          <li>Automatically detect magnet links in your clipboard</li>
+          <li>Simple queue management. Torrents can be reordered using drag'n drop.</li>
+          <li>Clean and structured user interface</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+
 </component>
