@@ -1,3 +1,4 @@
 [submodule "submodules/transmission"]
 	path = submodules/transmission
 	url = https://github.com/transmission/transmission.git
+	branch = 2.9x
