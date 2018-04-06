@@ -18,7 +18,13 @@
 
   <screenshots>
     <screenshot type="default">
-      <image width="774" height="549">https://camo.githubusercontent.com/c25a5bf6e8d2f5e9dd73dd877952a7a6910d11df/68747470733a2f2f692e696d6775722e636f6d2f5575496c7075392e706e67</image>
+      <image width="797" height="532">https://raw.githubusercontent.com/haecker-felix/Fragments/master/data/screenshots/1.png</image>
+    </screenshot>
+    <screenshot>
+      <image width="797" height="532">https://raw.githubusercontent.com/haecker-felix/Fragments/master/data/screenshots/2.png</image>
+    </screenshot>
+    <screenshot>
+      <image width="797" height="532">https://raw.githubusercontent.com/haecker-felix/Fragments/master/data/screenshots/3.png</image>
     </screenshot>
   </screenshots>
 
