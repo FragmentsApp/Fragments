@@ -31,7 +31,6 @@ public class Fragments.TorrentGroup : Gtk.Box{
 		torrent_listbox.update_index_number();
 
 		torrents.items_changed.connect(() => {
-			message("items changed");
 			torrent_listbox.update_index_number();
 			update_visibility();
 		});

@@ -12,8 +12,10 @@ public class Fragments.TorrentModel : Object, ListModel{
 
 	public void remove_torrent(Torrent torrent){
 		if(torrents.index(torrent) == -1) return;
-		items_changed(torrents.index(torrent), 1, 0);
+
+		uint index = torrents.index(torrent);
 		torrents.remove(torrent);
+		items_changed(index, 1, 0);
 	}
 
 	public Type get_item_type () {
