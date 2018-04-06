@@ -12,10 +12,6 @@ public class Fragments.App : Gtk.Application {
 		application_id = "org.gnome.Fragments"; flags = ApplicationFlags.HANDLES_OPEN;
 	}
 
-	protected override void shutdown (){
-		manager.close_session();
-	}
-
 	protected override void startup () {
 		base.startup ();
 

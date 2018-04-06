@@ -60,6 +60,16 @@ public class Fragments.Window : Gtk.ApplicationWindow {
 			window_stack.set_visible_child_name("content");
 	}
 
+	protected override bool delete_event(Gdk.EventAny eventany){
+		Timeout.add_seconds(2, () => { // Wait a bit, until the window get's hidden.
+			manager.close_session();
+			this.get_application().quit();
+			return false;
+		});
+		this.hide();
+		return true;
+	}
+
 	[GtkCallback]
 	private void open_torrent_button_clicked(){
 		var filech = new Gtk.FileChooserDialog (_("Open torrents"), this, Gtk.FileChooserAction.OPEN);
