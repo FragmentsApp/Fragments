@@ -46,14 +46,6 @@ public class Fragments.TorrentManager : Object{
 	}
 
 	private void connect_signals(){
-		stopped_torrents.items_changed.connect(update_torrent_count);
-		check_wait_torrents.items_changed.connect(update_torrent_count);
-		check_torrents.items_changed.connect(update_torrent_count);
-		download_wait_torrents.items_changed.connect(update_torrent_count);
-		download_torrents.items_changed.connect(update_torrent_count);
-		seed_torrents.items_changed.connect(update_torrent_count);
-		seed_wait_torrents.items_changed.connect(update_torrent_count);
-
 		App.settings.notify["max-downloads"].connect(update_transmission_settings);
 		download_wait_torrents.items_changed.connect(update_torrent_queue);
 	}
@@ -134,6 +126,7 @@ public class Fragments.TorrentManager : Object{
 		seed_torrents.remove_torrent(torrent);
 
 		if(torrent.removed){
+			update_torrent_count();
 			return;
 		}
 
@@ -146,6 +139,8 @@ public class Fragments.TorrentManager : Object{
 			case Transmission.Activity.SEED_WAIT: seed_wait_torrents.add_torrent(torrent); break;
 			case Transmission.Activity.SEED: seed_torrents.add_torrent(torrent); break;
 		}
+
+		update_torrent_count();
 	}
 
 	private void update_torrent_count(){

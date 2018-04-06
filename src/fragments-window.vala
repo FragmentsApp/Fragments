@@ -38,23 +38,26 @@ public class Fragments.Window : Gtk.ApplicationWindow {
 		seeding_group.add_subgroup(manager.seed_torrents, false);
 
 		update_gtk_theme();
+		update_stack_page();
 		connect_signals();
 	}
 
 	private void connect_signals(){
 		App.settings.notify["enable-dark-theme"].connect(update_gtk_theme);
-		manager.notify["torrent-count"].connect(() => {
-			if(manager.torrent_count == 0)
-				window_stack.set_visible_child_name("empty");
-			else
-				window_stack.set_visible_child_name("content");
-		});
+		manager.notify["torrent-count"].connect(update_stack_page);
 		this.focus_in_event.connect(check_for_magnet_link);
 	}
 
 	private void update_gtk_theme(){
 		var gtk_settings = Gtk.Settings.get_default ();
 		gtk_settings.gtk_application_prefer_dark_theme = App.settings.enable_dark_theme;
+	}
+
+	private void update_stack_page(){
+		if(manager.torrent_count == 0)
+			window_stack.set_visible_child_name("empty");
+		else
+			window_stack.set_visible_child_name("content");
 	}
 
 	[GtkCallback]
