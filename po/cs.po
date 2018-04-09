@@ -1,0 +1,225 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the fragments package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fragments\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-31 18:07+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: data/ui/settings-window.ui:40
+msgid "Use dark theme"
+msgstr ""
+
+#: data/ui/settings-window.ui:64
+msgid "Maximum active downloads"
+msgstr ""
+
+#: data/ui/settings-window.ui:76
+msgid "Download folder"
+msgstr ""
+
+#: data/ui/settings-window.ui:123
+msgid "/home/haecker-felix/Dokuemnte/asdkf"
+msgstr ""
+
+#: data/ui/settings-window.ui:151
+msgid "General"
+msgstr ""
+
+#: data/ui/torrent.ui:43
+msgid "1"
+msgstr ""
+
+#: data/ui/torrent.ui:290
+msgid "Please wait..."
+msgstr ""
+
+#: data/ui/torrent.ui:348
+msgid "Download"
+msgstr ""
+
+#: data/ui/torrent.ui:371
+msgid "Seeders"
+msgstr ""
+
+#: data/ui/torrent.ui:398
+msgid "Downloaded"
+msgstr ""
+
+#: data/ui/torrent.ui:425 data/ui/torrent.ui:505
+msgid "Speed"
+msgstr ""
+
+#: data/ui/torrent.ui:482
+msgid "Upload"
+msgstr ""
+
+#: data/ui/torrent.ui:544
+msgid "Leechers"
+msgstr ""
+
+#: data/ui/torrent.ui:559
+msgid "Uploaded"
+msgstr ""
+
+#: data/ui/torrent.ui:611
+msgid "Request more peers"
+msgstr ""
+
+#: data/ui/torrent.ui:671
+msgid "Open in folder"
+msgstr ""
+
+#: data/ui/torrent.ui:719
+msgid "Turbo Boost"
+msgstr ""
+
+#: data/ui/torrent.ui:732
+msgid "Speeds up this torrent at the expense of others"
+msgstr ""
+
+#: src/fragments-app.vala:92
+msgid "A simple torrent manager"
+msgstr ""
+
+#: src/fragments-app.vala:96
+msgid "GitHub Homepage"
+msgstr ""
+
+#: src/fragments-settings-window.vala:32
+msgid "Select download folder"
+msgstr ""
+
+#: src/fragments-settings-window.vala:33 src/fragments-torrent.vala:185
+#: src/fragments-window.vala:57
+msgid "Cancel"
+msgstr ""
+
+#: src/fragments-settings-window.vala:34 src/fragments-window.vala:58
+msgid "Open"
+msgstr ""
+
+#: src/fragments-torrent.vala:182
+msgid ""
+"Once removed, continuing the transfer will require the torrent file or "
+"magnet link."
+msgstr ""
+
+#: src/fragments-torrent.vala:183
+msgid "Remove Torrent?"
+msgstr ""
+
+#: src/fragments-torrent.vala:186
+msgid "Remove"
+msgstr ""
+
+#: src/fragments-torrent.vala:189
+msgid "Remove downloaded data as well"
+msgstr ""
+
+#: src/fragments-torrent.vala:246
+msgid "Paused"
+msgstr ""
+
+#: src/fragments-torrent.vala:247
+#, c-format
+msgid "%s uploaded · %s"
+msgstr ""
+
+#: src/fragments-torrent.vala:248
+msgid "Queued to seed"
+msgstr ""
+
+#: src/fragments-torrent.vala:249
+#, c-format
+msgid "%s of %s downloaded · %s"
+msgstr ""
+
+#: src/fragments-torrent.vala:250
+msgid "Queued to download"
+msgstr ""
+
+#: src/fragments-torrent.vala:251
+msgid "Checking files…"
+msgstr ""
+
+#: src/fragments-torrent.vala:252
+msgid "Queued to check files"
+msgstr ""
+
+#: src/fragments-torrent.vala:281
+#, c-format
+msgid "%i (%i active)"
+msgstr ""
+
+#: src/fragments-utils.vala:9
+#, c-format
+msgid "%u day"
+msgid_plural "%u days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/fragments-utils.vala:10
+#, c-format
+msgid "%u hour"
+msgid_plural "%u hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/fragments-utils.vala:11
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/fragments-utils.vala:12
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/fragments-window.vala:23
+msgid "Downloading"
+msgstr ""
+
+#: src/fragments-window.vala:24
+msgid "Seeding"
+msgstr ""
+
+#: src/fragments-window.vala:25
+msgid "Queued"
+msgstr ""
+
+#: src/fragments-window.vala:55
+msgid "Open torrents"
+msgstr ""
+
+#: src/fragments-window.vala:63
+msgid "All files"
+msgstr ""
+
+#: src/fragments-window.vala:66
+msgid "Torrent files"
+msgstr ""
+
+#: src/fragments-window.vala:94
+#, c-format
+msgid "Add magnet link <b>\"%s\"</b> from clipboard?"
+msgstr ""
