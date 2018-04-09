@@ -8,26 +8,28 @@ msgstr ""
 "Project-Id-Version: fragments\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-31 18:07+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-04-10 09:36+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/fragments/"
+"translations/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.20\n"
 
 #: data/ui/settings-window.ui:40
 msgid "Use dark theme"
-msgstr ""
+msgstr "Použít tmavé téma"
 
 #: data/ui/settings-window.ui:64
 msgid "Maximum active downloads"
-msgstr ""
+msgstr "Maximální aktivní stahování"
 
 #: data/ui/settings-window.ui:76
 msgid "Download folder"
-msgstr ""
+msgstr "Složka pro stahování"
 
 #: data/ui/settings-window.ui:123
 msgid "/home/haecker-felix/Dokuemnte/asdkf"
@@ -35,7 +37,7 @@ msgstr ""
 
 #: data/ui/settings-window.ui:151
 msgid "General"
-msgstr ""
+msgstr "Obecné"
 
 #: data/ui/torrent.ui:43
 msgid "1"
@@ -43,7 +45,7 @@ msgstr ""
 
 #: data/ui/torrent.ui:290
 msgid "Please wait..."
-msgstr ""
+msgstr "Čekejte prosím..."
 
 #: data/ui/torrent.ui:348
 msgid "Download"
@@ -51,35 +53,35 @@ msgstr ""
 
 #: data/ui/torrent.ui:371
 msgid "Seeders"
-msgstr ""
+msgstr "Protějšky"
 
 #: data/ui/torrent.ui:398
 msgid "Downloaded"
-msgstr ""
+msgstr "Stáhnuto"
 
 #: data/ui/torrent.ui:425 data/ui/torrent.ui:505
 msgid "Speed"
-msgstr ""
+msgstr "Rychlost"
 
 #: data/ui/torrent.ui:482
 msgid "Upload"
-msgstr ""
+msgstr "Nahrávání"
 
 #: data/ui/torrent.ui:544
 msgid "Leechers"
-msgstr ""
+msgstr "Stahující"
 
 #: data/ui/torrent.ui:559
 msgid "Uploaded"
-msgstr ""
+msgstr "Nahráno"
 
 #: data/ui/torrent.ui:611
 msgid "Request more peers"
-msgstr ""
+msgstr "Požádat o další partnery"
 
 #: data/ui/torrent.ui:671
 msgid "Open in folder"
-msgstr ""
+msgstr "Otevřít ve složce"
 
 #: data/ui/torrent.ui:719
 msgid "Turbo Boost"
@@ -87,28 +89,28 @@ msgstr ""
 
 #: data/ui/torrent.ui:732
 msgid "Speeds up this torrent at the expense of others"
-msgstr ""
+msgstr "Urychluje tento torrent na úkor ostatních"
 
 #: src/fragments-app.vala:92
 msgid "A simple torrent manager"
-msgstr ""
+msgstr "Jednoduchý správce torrentů"
 
 #: src/fragments-app.vala:96
 msgid "GitHub Homepage"
-msgstr ""
+msgstr "Domovská stránka na GitHubu"
 
 #: src/fragments-settings-window.vala:32
 msgid "Select download folder"
-msgstr ""
+msgstr "Vyberte složku pro stažení"
 
 #: src/fragments-settings-window.vala:33 src/fragments-torrent.vala:185
 #: src/fragments-window.vala:57
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/fragments-settings-window.vala:34 src/fragments-window.vala:58
 msgid "Open"
-msgstr ""
+msgstr "Otevřít"
 
 #: src/fragments-torrent.vala:182
 msgid ""
@@ -118,24 +120,24 @@ msgstr ""
 
 #: src/fragments-torrent.vala:183
 msgid "Remove Torrent?"
-msgstr ""
+msgstr "Odstranit Torrent?"
 
 #: src/fragments-torrent.vala:186
 msgid "Remove"
-msgstr ""
+msgstr "Odstranit"
 
 #: src/fragments-torrent.vala:189
 msgid "Remove downloaded data as well"
-msgstr ""
+msgstr "Odstranit i stažená data"
 
 #: src/fragments-torrent.vala:246
 msgid "Paused"
-msgstr ""
+msgstr "Pozastaveno"
 
 #: src/fragments-torrent.vala:247
 #, c-format
 msgid "%s uploaded · %s"
-msgstr ""
+msgstr "%s nahráno · %s"
 
 #: src/fragments-torrent.vala:248
 msgid "Queued to seed"
