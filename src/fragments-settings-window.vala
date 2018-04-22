@@ -1,6 +1,6 @@
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/Fragments/ui/settings-window.ui")]
+[GtkTemplate (ui = "/de/haeckerfelix/Fragments/ui/settings-window.ui")]
 public class Fragments.SettingsWindow : Gtk.Window {
 
 	[GtkChild] private Switch dark_theme_switch;

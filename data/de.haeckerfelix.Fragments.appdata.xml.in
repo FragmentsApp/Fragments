@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-  <id>org.gnome.Fragments.desktop</id>
+  <id>de.haeckerfelix.Fragments.desktop</id>
   <name>Fragments</name>
   <summary>A BitTorrent Client</summary>
   <translation type="gettext">fragments</translation>

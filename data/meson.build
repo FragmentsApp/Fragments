@@ -1,19 +1,19 @@
 # Resources
 resources = gnome.compile_resources(
-  'org.gnome.Fragments',
-  'org.gnome.Fragments.gresource.xml',
+  'de.haeckerfelix.Fragments',
+  'de.haeckerfelix.Fragments.gresource.xml',
   c_name: 'resources'
 )
 
 # Settings schema
-install_data('org.gnome.Fragments.gschema.xml', install_dir : get_option('datadir') + '/glib-2.0/schemas/')
+install_data('de.haeckerfelix.Fragments.gschema.xml', install_dir : get_option('datadir') + '/glib-2.0/schemas/')
 
 # Desktop file
 i18n.merge_file(
-  'org.gnome.Fragments.desktop',
+  'de.haeckerfelix.Fragments.desktop',
   type: 'desktop',
-  input: 'org.gnome.Fragments.desktop.in',
-  output: 'org.gnome.Fragments.desktop',
+  input: 'de.haeckerfelix.Fragments.desktop.in',
+  output: 'de.haeckerfelix.Fragments.desktop',
   po_dir: po_dir,
   install: true,
   install_dir: join_paths(get_option('datadir'), 'applications')
@@ -21,9 +21,9 @@ i18n.merge_file(
 
 # Appdata
 i18n.merge_file(
-  'org.gnome.Fragments.appdata.xml',
-  input: 'org.gnome.Fragments.appdata.xml.in',
-  output: 'org.gnome.Fragments.appdata.xml',
+  'de.haeckerfelix.Fragments.appdata.xml',
+  input: 'de.haeckerfelix.Fragments.appdata.xml.in',
+  output: 'de.haeckerfelix.Fragments.appdata.xml',
   po_dir: po_dir,
   install: true,
   install_dir: join_paths(get_option('datadir'), 'metainfo')

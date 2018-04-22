@@ -8,7 +8,7 @@ public class Fragments.Settings : GLib.Object{
 	private int _max_downloads;
 
 	public Settings(){
-		settings = new GLib.Settings ("org.gnome.Fragments");
+		settings = new GLib.Settings ("de.haeckerfelix.Fragments");
 
 		_enable_dark_theme = settings.get_boolean("enable-dark-theme");
 		_download_folder = settings.get_string("download-folder");

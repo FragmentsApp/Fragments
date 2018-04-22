@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="fragments">
-  <schema id="org.gnome.Fragments" path="/org/gnome/Fragments/">
+  <schema id="de.haeckerfelix.Fragments" path="/de/haeckerfelix/Fragments/">
 
     <key name="enable-dark-theme" type="b">
       <default>false</default>

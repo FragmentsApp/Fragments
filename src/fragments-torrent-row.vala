@@ -1,6 +1,6 @@
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/Fragments/ui/torrent-row.ui")]
+[GtkTemplate (ui = "/de/haeckerfelix/Fragments/ui/torrent-row.ui")]
 public class Fragments.TorrentRow : Gtk.ListBoxRow{
 
 	private unowned Torrent torrent;

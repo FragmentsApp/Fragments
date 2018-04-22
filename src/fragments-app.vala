@@ -9,7 +9,7 @@ public class Fragments.App : Gtk.Application {
 	private TorrentManager manager;
 
 	public App(){
-		application_id = "org.gnome.Fragments"; flags = ApplicationFlags.HANDLES_OPEN;
+		application_id = "de.haeckerfelix.Fragments"; flags = ApplicationFlags.HANDLES_OPEN;
 	}
 
 	protected override void startup () {
@@ -65,7 +65,7 @@ public class Fragments.App : Gtk.Application {
 		this.add_action (action);
 
 		// Setup Appmenu
-		var builder = new Gtk.Builder.from_resource ("/org/gnome/Fragments/interface/app-menu.ui");
+		var builder = new Gtk.Builder.from_resource ("/de/haeckerfelix/Fragments/interface/app-menu.ui");
 		var app_menu = builder.get_object ("app-menu") as GLib.MenuModel;
 		set_app_menu (app_menu);
 	}
@@ -80,7 +80,7 @@ public class Fragments.App : Gtk.Application {
 		};
 
 		Gtk.show_about_dialog (window,
-			logo_icon_name: "org.gnome.Fragments",
+			logo_icon_name: "de.haeckerfelix.Fragments",
 			program_name: "Fragments",
 			comments: _("A BitTorrent Client"),
 			authors: authors,

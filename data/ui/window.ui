@@ -8,7 +8,7 @@
     <property name="can_focus">False</property>
     <property name="default_width">700</property>
     <property name="default_height">600</property>
-    <property name="icon_name">org.gnome.Fragments</property>
+    <property name="icon_name">de.haeckerfelix.Fragments</property>
     <child>
       <object class="GtkOverlay">
         <property name="visible">True</property>
@@ -67,7 +67,7 @@
                     <property name="can_focus">False</property>
                     <property name="halign">center</property>
                     <property name="pixel_size">256</property>
-                    <property name="resource">/org/gnome/Fragments/icons/welcome.png</property>
+                    <property name="resource">/de/haeckerfelix/Fragments/icons/welcome.png</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -346,7 +346,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="resource">/org/gnome/Fragments/icons/speed-limit-off-symbolic.svg</property>
+                <property name="resource">/de/haeckerfelix/Fragments/icons/speed-limit-off-symbolic.svg</property>
               </object>
             </child>
             <style>

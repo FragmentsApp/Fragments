@@ -1,5 +1,5 @@
 {
-    "app-id" : "org.gnome.Fragments",
+    "app-id" : "de.haeckerfelix.Fragments",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "3.28",
     "sdk" : "org.gnome.Sdk",
@@ -40,5 +40,9 @@
                 }
             ]
         }
-    ]
+    ],
+    "build-options" : {
+        "env" : {
+        }
+    }
 }
