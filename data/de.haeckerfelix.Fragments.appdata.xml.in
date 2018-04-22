@@ -40,6 +40,17 @@
   </kudos>
 
   <releases>
+    <release version="1.1" date="2018-04-22">
+      <description>
+        <p>
+          This version contains minor technical changes
+        </p>
+        <ul>
+          <li>Changed app-id to de.haeckerfelix.Fragments</li>
+          <li>Updated transmission submodule</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0" date="2018-04-06">
       <description>
         <p>
@@ -48,8 +59,8 @@
         <ul>
           <li>Support for torrent files</li>
           <li>Support for magnet links</li>
-          <li>Automatically detect magnet links in your clipboard</li>
-          <li>Simple queue management. Torrents can be reordered using drag'n drop.</li>
+          <li>Automatically detects magnet links in your clipboard</li>
+          <li>Simple queue management. Torrents can be reordered using drag and drop.</li>
           <li>Clean and structured user interface</li>
         </ul>
       </description>

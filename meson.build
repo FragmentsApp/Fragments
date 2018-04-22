@@ -1,6 +1,6 @@
 project(
   'fragments', ['vala', 'c'],
-  version: '0.0.1',
+  version: '1.1',
   license: 'GPL3',
   meson_version: '>= 0.40.0'
 )
