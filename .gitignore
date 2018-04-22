@@ -1,6 +1,6 @@
 .flatpak-builder
 org.gnome.Fragments.json~
-de.haeckerfelix.Fragments~
+de.haeckerfelix.Fragments.json~
 _build
 *.ui~
 submodules/libtransmission
