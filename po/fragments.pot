@@ -30,16 +30,8 @@ msgstr ""
 msgid "Download folder"
 msgstr ""
 
-#: data/ui/settings-window.ui:124
-msgid "/home/haecker-felix/Dokuemnte/asdkf"
-msgstr ""
-
 #: data/ui/settings-window.ui:152
 msgid "General"
-msgstr ""
-
-#: data/ui/torrent-row.ui:57
-msgid "1"
 msgstr ""
 
 #: data/ui/torrent-row.ui:248
@@ -108,10 +100,6 @@ msgstr ""
 
 #: data/ui/window.ui:246
 msgid "Add"
-msgstr ""
-
-#: data/ui/window.ui:265
-msgid "text"
 msgstr ""
 
 #: src/fragments-app.vala:85
