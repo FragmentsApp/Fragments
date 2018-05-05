@@ -80,6 +80,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">center</property>
+                    <property name="margin_bottom">12</property>
                     <property name="label" translatable="yes">Get some torrents</property>
                     <attributes>
                       <attribute name="font-desc" value="Cantarell 20"/>
@@ -97,7 +98,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">center</property>
-                    <property name="row_spacing">12</property>
+                    <property name="row_spacing">16</property>
                     <property name="column_spacing">12</property>
                     <child>
                       <object class="GtkImage">
