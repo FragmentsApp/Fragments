@@ -1,6 +1,6 @@
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/Fragments/ui/torrent-group.ui")]
+[GtkTemplate (ui = "/de/haeckerfelix/Fragments/ui/torrent-group.ui")]
 public class Fragments.TorrentGroup : Gtk.Box{
 
 	[GtkChild] private Label title_label;

@@ -1,5 +1,6 @@
 data/ui/settings-window.ui
-data/ui/torrent.ui
+data/ui/torrent-row.ui
+data/ui/window.ui
 src/fragments-app.vala
 src/fragments-settings-window.vala
 src/fragments-torrent.vala

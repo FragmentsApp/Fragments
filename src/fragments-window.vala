@@ -1,6 +1,6 @@
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/Fragments/ui/window.ui")]
+[GtkTemplate (ui = "/de/haeckerfelix/Fragments/ui/window.ui")]
 public class Fragments.Window : Gtk.ApplicationWindow {
 
 	private TorrentManager manager;
@@ -18,7 +18,7 @@ public class Fragments.Window : Gtk.ApplicationWindow {
 		this.show_all();
 
 		var provider = new CssProvider ();
-		provider.load_from_resource ("/org/gnome/Fragments/interface/adwaita.css");
+		provider.load_from_resource ("/de/haeckerfelix/Fragments/interface/adwaita.css");
 		StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
 
 		TorrentGroup downloading_group = new TorrentGroup(_("Downloading"));

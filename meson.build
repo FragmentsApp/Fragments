@@ -1,6 +1,6 @@
 project(
   'fragments', ['vala', 'c'],
-  version: '0.0.1',
+  version: '1.1',
   license: 'GPL3',
   meson_version: '>= 0.40.0'
 )
@@ -8,9 +8,11 @@ project(
 message('Build libtransmission. Please wait, this will take a moment...')
 build = run_command('sh', 'build-aux/build_libtransmission.sh')
 if build.returncode() != 0
+  message('Build failed. Please create new issue with complete build log at: https://github.com/haecker-felix/Fragments/issues/new')
   error(build.stderr())
 else
   message(build.stdout())
+  message('Build libtransmission - OK!')
 endif
 
 gnome = import('gnome')
