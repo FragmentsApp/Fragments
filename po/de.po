@@ -8,26 +8,28 @@ msgstr ""
 "Project-Id-Version: fragments\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-05 16:10+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-05-05 14:14+0000\n"
+"Last-Translator: Häcker Felix <haecker.felix1207@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/fragments/"
+"translations/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: data/ui/settings-window.ui:41
 msgid "Use dark theme"
-msgstr ""
+msgstr "Dunkles Theme verwenden"
 
 #: data/ui/settings-window.ui:65
 msgid "Maximum active downloads"
-msgstr ""
+msgstr "Maximale aktive downloads"
 
 #: data/ui/settings-window.ui:77
 msgid "Download folder"
-msgstr ""
+msgstr "Download Ordner"
 
 #: data/ui/settings-window.ui:124
 msgid "/home/haecker-felix/Dokuemnte/asdkf"
