@@ -262,7 +262,7 @@
                           <object class="GtkLabel" id="magnet_notification_label">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">text</property>
+                            <property name="label" translatable="no">text</property>
                             <property name="wrap">True</property>
                           </object>
                           <packing>
