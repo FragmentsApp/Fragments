@@ -8,206 +8,208 @@ msgstr ""
 "Project-Id-Version: fragments\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-05 16:10+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-07-16 17:06+0000\n"
+"Last-Translator: Çağatay Yiğit Şahin <cyigitsahin@outlook.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/fragments/"
+"translations/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: data/ui/settings-window.ui:41
 msgid "Use dark theme"
-msgstr ""
+msgstr "Karanlık tema kullan"
 
 #: data/ui/settings-window.ui:65
 msgid "Maximum active downloads"
-msgstr ""
+msgstr "Azami etkin indirmeler"
 
 #: data/ui/settings-window.ui:77
 msgid "Download folder"
-msgstr ""
+msgstr "İndirme klasörü"
 
 #: data/ui/settings-window.ui:152
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: data/ui/torrent-row.ui:248
 msgid "Please wait..."
-msgstr ""
+msgstr "Lütfen bekleyin…"
 
 #: data/ui/torrent-row.ui:391
 msgid "Download"
-msgstr ""
+msgstr "İndirme"
 
 #: data/ui/torrent-row.ui:414
 msgid "Seeders"
-msgstr ""
+msgstr "Dağıtıcılar"
 
 #: data/ui/torrent-row.ui:441
 msgid "Downloaded"
-msgstr ""
+msgstr "İndirilmiş"
 
 #: data/ui/torrent-row.ui:468 data/ui/torrent-row.ui:548
 msgid "Speed"
-msgstr ""
+msgstr "Hız"
 
 #: data/ui/torrent-row.ui:525
 msgid "Upload"
-msgstr ""
+msgstr "Gönderme"
 
 #: data/ui/torrent-row.ui:587
 msgid "Leechers"
-msgstr ""
+msgstr "Sömürücüler"
 
 #: data/ui/torrent-row.ui:602
 msgid "Uploaded"
-msgstr ""
+msgstr "Gönderilmiş"
 
 #: data/ui/torrent-row.ui:654
 msgid "Request more peers"
-msgstr ""
+msgstr "Daha fazla eş iste"
 
 #: data/ui/torrent-row.ui:713
 msgid "Open in folder"
-msgstr ""
+msgstr "Klasörde aç"
 
 #: data/ui/torrent-row.ui:760
 msgid "Turbo Boost"
-msgstr ""
+msgstr "Turbo Takviye"
 
 #: data/ui/torrent-row.ui:773
 msgid "Speeds up this torrent at the expense of others"
-msgstr ""
+msgstr "Bu torrenti diğerlerinin pahasına hızlandırır"
 
 #: data/ui/window.ui:84
 msgid "Get some torrents"
-msgstr ""
+msgstr "Birkaç torrent edin"
 
 #: data/ui/window.ui:141
 msgid "Click a magnet link on a website"
-msgstr ""
+msgstr "Bir web sitesinde magnet bağlantısına tıkla"
 
 #: data/ui/window.ui:153
 msgid "Copy a magnet link to the clipboard"
-msgstr ""
+msgstr "Bir magnet bağlantısını panoya kopyala"
 
 #: data/ui/window.ui:165
 msgid "Add a torrent file from the menu"
-msgstr ""
+msgstr "Menüden bir torrent dosyası ekle"
 
 #: data/ui/window.ui:246
 msgid "Add"
-msgstr ""
+msgstr "Ekle"
 
 #: src/fragments-app.vala:85
 msgid "A BitTorrent Client"
-msgstr ""
+msgstr "Bir BitTorrent İstemcisi"
 
 #: src/fragments-app.vala:89
 msgid "GitHub Homepage"
-msgstr ""
+msgstr "GitHub Ana Sayfası"
 
 #: src/fragments-settings-window.vala:32
 msgid "Select download folder"
-msgstr ""
+msgstr "İndirme klasörünü seç"
 
 #: src/fragments-settings-window.vala:33 src/fragments-window.vala:77
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: src/fragments-settings-window.vala:34 src/fragments-window.vala:78
 msgid "Open"
-msgstr ""
+msgstr "Aç"
 
 #: src/fragments-torrent.vala:101
 #, c-format
 msgid "%i (%i active)"
-msgstr ""
+msgstr "%i (%i etkin)"
 
 #: src/fragments-utils.vala:9
 #, c-format
 msgid "%u day"
 msgid_plural "%u days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u gün"
+msgstr[1] "%u gün"
 
 #: src/fragments-utils.vala:10
 #, c-format
 msgid "%u hour"
 msgid_plural "%u hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u saat"
+msgstr[1] "%u saat"
 
 #: src/fragments-utils.vala:11
 #, c-format
 msgid "%u minute"
 msgid_plural "%u minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u dakika"
+msgstr[1] "%u dakika"
 
 #: src/fragments-utils.vala:12
 #, c-format
 msgid "%u second"
 msgid_plural "%u seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u saniye"
+msgstr[1] "%u saniye"
 
 #: src/fragments-utils.vala:23
 #, c-format
 msgid "%s uploaded · %s"
-msgstr ""
+msgstr "%s gönderildi · %s"
 
 #: src/fragments-utils.vala:25
 #, c-format
 msgid "%s of %s downloaded"
-msgstr ""
+msgstr "%2$s’ın %1$s’ı indirildi"
 
 #: src/fragments-utils.vala:27
 #, c-format
 msgid "%s of %s downloaded · %s"
-msgstr ""
+msgstr "%2$s’ın %1$s’ı indirildi · %3$s"
 
 #: src/fragments-utils.vala:33
 msgid "Paused"
-msgstr ""
+msgstr "Duraklatıldı"
 
 #: src/fragments-utils.vala:36
 #, c-format
 msgid "%s left"
-msgstr ""
+msgstr "%s kaldı"
 
 #: src/fragments-utils.vala:38 src/fragments-utils.vala:40
 #: src/fragments-window.vala:26
 msgid "Queued"
-msgstr ""
+msgstr "Sırada"
 
 #: src/fragments-utils.vala:39
 msgid "Checking…"
-msgstr ""
+msgstr "Kontrol ediliyor…"
 
 #: src/fragments-window.vala:24
 msgid "Downloading"
-msgstr ""
+msgstr "İndiriliyor"
 
 #: src/fragments-window.vala:25
 msgid "Seeding"
-msgstr ""
+msgstr "Gönderiliyor"
 
 #: src/fragments-window.vala:75
 msgid "Open torrents"
-msgstr ""
+msgstr "Torrent aç"
 
 #: src/fragments-window.vala:83
 msgid "All files"
-msgstr ""
+msgstr "Tüm dosyalar"
 
 #: src/fragments-window.vala:86
 msgid "Torrent files"
-msgstr ""
+msgstr "Torrent dosyaları"
 
 #: src/fragments-window.vala:117
 #, c-format
 msgid "Add magnet link <b>\"%s\"</b> from clipboard?"
-msgstr ""
+msgstr "Panodan <b>“%s”</b> magnet bağlantısı eklensin mi?"
