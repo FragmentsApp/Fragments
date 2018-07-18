@@ -114,7 +114,7 @@ public class Fragments.Window : Gtk.ApplicationWindow {
 
 	private void show_magnet_notification(string torrent_name){
 		notification_stack.set_visible_child_name("add-magnet");
-		magnet_notification_label.set_markup(_("Add magnet link <b>\"%s\"</b> from clipboard?").printf(torrent_name));
+		magnet_notification_label.set_markup(_("Add magnet link <b>“%s”</b> from clipboard?").printf(torrent_name));
 		notification_revealer.set_reveal_child(true);
 	}
 
