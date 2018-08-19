@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fragments\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-31 18:07+0200\n"
-"PO-Revision-Date: 2018-08-19 17:34+0000\n"
+"PO-Revision-Date: 2018-08-20 10:44+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fragments/translations/nb_NO/>\n"
@@ -45,7 +45,7 @@ msgstr "1"
 
 #: data/ui/torrent.ui:290
 msgid "Please wait..."
-msgstr "Vent"
+msgstr "Vent…"
 
 #: data/ui/torrent.ui:348
 msgid "Download"
