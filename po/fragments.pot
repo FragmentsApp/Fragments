@@ -35,7 +35,7 @@ msgid "General"
 msgstr ""
 
 #: data/ui/torrent-row.ui:248
-msgid "Please wait..."
+msgid "Please wait…"
 msgstr ""
 
 #: data/ui/torrent-row.ui:391
