@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: fragments\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-05 16:10+0200\n"
-"PO-Revision-Date: 2018-05-18 10:44+0000\n"
-"Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
+"PO-Revision-Date: 2018-09-05 17:16+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/fragments/"
 "translations/nl/>\n"
 "Language: nl\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: data/ui/settings-window.ui:41
 msgid "Use dark theme"
-msgstr "Gebruik donker thema"
+msgstr "Donker thema gebruiken"
 
 #: data/ui/settings-window.ui:65
 msgid "Maximum active downloads"
-msgstr "Maximale actieve downloads"
+msgstr "Maximaal aantal actieve downloads"
 
 #: data/ui/settings-window.ui:77
 msgid "Download folder"
@@ -37,7 +37,7 @@ msgstr "Algemeen"
 
 #: data/ui/torrent-row.ui:248
 msgid "Please wait..."
-msgstr "Even geduld aub…"
+msgstr "Even geduld…"
 
 #: data/ui/torrent-row.ui:391
 msgid "Download"
@@ -69,15 +69,15 @@ msgstr "Geüpload"
 
 #: data/ui/torrent-row.ui:654
 msgid "Request more peers"
-msgstr "Vraag naar meer peers"
+msgstr "Meer peers opvragen"
 
 #: data/ui/torrent-row.ui:713
 msgid "Open in folder"
-msgstr "Open in map"
+msgstr "Bijbehorende map openen"
 
 #: data/ui/torrent-row.ui:760
 msgid "Turbo Boost"
-msgstr "Turbo Boost"
+msgstr "Turbosnelheid"
 
 #: data/ui/torrent-row.ui:773
 msgid "Speeds up this torrent at the expense of others"
@@ -97,7 +97,7 @@ msgstr "Kopieer een magnet-link naar het klembord"
 
 #: data/ui/window.ui:165
 msgid "Add a torrent file from the menu"
-msgstr "Voeg een torrentbestand toe vanaf het menu"
+msgstr "Voeg een torrentbestand toe via het menu"
 
 #: data/ui/window.ui:246
 msgid "Add"
@@ -109,11 +109,11 @@ msgstr "Een BitTorrent-client"
 
 #: src/fragments-app.vala:89
 msgid "GitHub Homepage"
-msgstr "GitHub-startpagina"
+msgstr "GitHub-pagina"
 
 #: src/fragments-settings-window.vala:32
 msgid "Select download folder"
-msgstr "Selecteer downloadmap"
+msgstr "Downloadmap selecteren"
 
 #: src/fragments-settings-window.vala:33 src/fragments-window.vala:77
 msgid "Cancel"
@@ -187,19 +187,19 @@ msgstr "In de wachtrij"
 
 #: src/fragments-utils.vala:39
 msgid "Checking…"
-msgstr "Controleren…"
+msgstr "Bezig met controleren…"
 
 #: src/fragments-window.vala:24
 msgid "Downloading"
-msgstr "Aan het downloaden"
+msgstr "Bezig met downloaden"
 
 #: src/fragments-window.vala:25
 msgid "Seeding"
-msgstr "Aan het seeden"
+msgstr "Bezig met seeden"
 
 #: src/fragments-window.vala:75
 msgid "Open torrents"
-msgstr "Open torrents"
+msgstr "Torrents openen"
 
 #: src/fragments-window.vala:83
 msgid "All files"
@@ -212,4 +212,4 @@ msgstr "Torrentbestanden"
 #: src/fragments-window.vala:117
 #, c-format
 msgid "Add magnet link <b>\"%s\"</b> from clipboard?"
-msgstr "Voeg magnet-link <b>\"%s\"</b> van klembord toe?"
+msgstr "Wil je de magnet-link <b>\"%s\"</b> van het klembord toevoegen?"
