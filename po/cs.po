@@ -31,10 +31,6 @@ msgstr "Maximální aktivní stahování"
 msgid "Download folder"
 msgstr "Složka pro stahování"
 
-#: data/ui/settings-window.ui:123
-msgid "/home/haecker-felix/Dokuemnte/asdkf"
-msgstr ""
-
 #: data/ui/settings-window.ui:151
 msgid "General"
 msgstr "Obecné"

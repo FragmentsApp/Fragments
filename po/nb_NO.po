@@ -31,10 +31,6 @@ msgstr "Maksimalt antall aktive nedlastinger"
 msgid "Download folder"
 msgstr "Nedlastingsmappe"
 
-#: data/ui/settings-window.ui:123
-msgid "/home/haecker-felix/Dokuemnte/asdkf"
-msgstr "/home/bruker/eksempelmappe/asdfg"
-
 #: data/ui/settings-window.ui:151
 msgid "General"
 msgstr "Hovedinnstillinger"
