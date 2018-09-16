@@ -63,11 +63,6 @@ public class Fragments.App : Gtk.Application {
 		action = new GLib.SimpleAction ("quit", null);
 		action.activate.connect (this.quit);
 		this.add_action (action);
-
-		// Setup Appmenu
-		var builder = new Gtk.Builder.from_resource ("/de/haeckerfelix/Fragments/interface/app-menu.ui");
-		var app_menu = builder.get_object ("app-menu") as GLib.MenuModel;
-		set_app_menu (app_menu);
 	}
 
 	private void show_about_dialog(){
