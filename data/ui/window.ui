@@ -55,6 +55,7 @@
       </object>
       <packing>
         <property name="submenu">main</property>
+        <property name="position">1</property>
       </packing>
     </child>
   </object>
@@ -106,6 +107,7 @@
           </object>
           <packing>
             <property name="pack_type">end</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -180,7 +182,7 @@
                     <property name="can_focus">False</property>
                     <property name="halign">center</property>
                     <property name="pixel_size">256</property>
-                    <property name="resource">/de/haeckerfelix/Fragments/icons/welcome.svg</property>
+                    <property name="icon_name">de.haeckerfelix.Fragments</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
