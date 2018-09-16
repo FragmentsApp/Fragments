@@ -11,15 +11,7 @@ Fragments is an easy to use BitTorrent client which follows the GNOME HIG and in
 ## Install
 Make sure you have Flatpak installed. [Get more information](http://flatpak.org/getting.html)
 
-### Stable
-* [Get Fragments on Flathub!](https://flathub.org/apps/details/de.haeckerfelix.Fragments)
-
-### Nightly
-* ``flatpak install --from https://repos.byteturtle.eu/fragments-master.flatpakref``
-
-**GPG Details:**
-* Fingerprint:  F97F 162A F540 FF52 B0D2 8C92 D703 6FBE A001 AC1A
-* ID: D7036FBEA001AC1A
+<a href='https://flathub.org/apps/details/de.haeckerfelix.Fragments'><img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
 
 ### Build introductions
 ```
