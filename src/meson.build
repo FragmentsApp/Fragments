@@ -13,6 +13,7 @@ vala_sources = [
 ]
 
 deps = [
+  handy_dep,
   gtk_dep,
   gio_unix_dep,
   transmission_dep,
@@ -22,7 +23,8 @@ deps = [
 c_args = [
   '-DVERSION="' + meson.project_version() + '"',
   '-DGETTEXT_PACKAGE="gradio"',
-  '-DGNOMELOCALEDIR="' + get_option('prefix') + '/' + get_option('localedir') + '"'
+  '-DGNOMELOCALEDIR="' + get_option('prefix') + '/' + get_option('localedir') + '"',
+  '-DHANDY_USE_UNSTABLE_API',
 ]
 
 vala_args = [

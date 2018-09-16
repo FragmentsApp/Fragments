@@ -30,6 +30,17 @@
     ],
     "modules" : [
         {
+            "name" : "libhandy",
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://source.puri.sm/Librem5/libhandy/-/archive/v0.0.3/libhandy-v0.0.3.tar.gz",
+                    "sha256" : "387bb4da0e5d15d6d83cac5276841e6eda8429548b292ea3ebf002679189c270"
+                }
+            ]
+        },
+        {
             "name" : "fragments",
             "buildsystem" : "meson",
             "builddir" : true,

@@ -30,6 +30,7 @@ gobject_dep = dependency('gobject-2.0')
 gio_dep = dependency('gio-2.0')
 gio_unix_dep = dependency('gio-unix-2.0')
 gtk_dep = dependency('gtk+-3.0', version : '>=3.20.10')
+handy_dep = dependency('libhandy-0.0')
 
 subdir('submodules')
 subdir('data')

@@ -1,15 +1,17 @@
 using Gtk;
+using Hdy;
 
 [GtkTemplate (ui = "/de/haeckerfelix/Fragments/ui/window.ui")]
 public class Fragments.Window : Gtk.ApplicationWindow {
 
 	private TorrentManager manager;
-	[GtkChild] private Gtk.Box torrent_group_box;
 
 	[GtkChild] private Stack notification_stack;
 	[GtkChild] private Stack window_stack;
 	[GtkChild] private Label magnet_notification_label;
 	[GtkChild] private Revealer notification_revealer;
+	[GtkChild] private Viewport torrent_viewport;
+	private Column torrent_group_box;
 
 	public Window (App app, ref TorrentManager manager) {
 		GLib.Object(application: app);
@@ -25,9 +27,17 @@ public class Fragments.Window : Gtk.ApplicationWindow {
 		TorrentGroup seeding_group = new TorrentGroup(_("Seeding"));
 		TorrentGroup queued_group = new TorrentGroup(_("Queued"));
 
-		torrent_group_box.pack_start(downloading_group, false, false, 0);
-		torrent_group_box.pack_start(queued_group, false, false, 0);
-		torrent_group_box.pack_start(seeding_group, false, false, 0);
+        torrent_group_box = new Column();
+        Box groups = new Box(Orientation.VERTICAL, 0);
+        groups.spacing = 22;
+        groups.margin_bottom = 22;
+        groups.margin_top = 22;
+		groups.add(downloading_group);
+		groups.add(queued_group);
+		groups.add(seeding_group);
+		torrent_group_box.add(groups);
+		torrent_group_box.show_all();
+		torrent_group_box.set_maximum_width(600);
 
 		queued_group.add_subgroup(manager.download_wait_torrents, true);
 		queued_group.add_subgroup(manager.stopped_torrents, false);
@@ -36,6 +46,8 @@ public class Fragments.Window : Gtk.ApplicationWindow {
 
 		downloading_group.add_subgroup(manager.download_torrents, false);
 		seeding_group.add_subgroup(manager.seed_torrents, false);
+
+		torrent_viewport.add(torrent_group_box);
 
 		update_gtk_theme();
 		update_stack_page();

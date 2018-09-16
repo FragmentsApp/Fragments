@@ -18,6 +18,8 @@ public class Fragments.TorrentRow : Gtk.ListBoxRow{
 	[GtkChild] private Button manual_update_button;
 
 	[GtkChild] private Box title_box;
+	[GtkChild] private Box info_box;
+	[GtkChild] private Box content_box;
 	[GtkChild] private Image mime_type_image;
 	[GtkChild] private Revealer revealer;
 	[GtkChild] private Stack primary_action_stack;
@@ -62,7 +64,27 @@ public class Fragments.TorrentRow : Gtk.ListBoxRow{
 			if(torrent.can_manual_update()) torrent.manual_update();
 			else manual_update_button.set_sensitive(false);
 		});
+
+		this.size_allocate.connect((a) => {
+		    set_size_mode(a.width);
+		});
+
+        Allocation a;
+		this.get_allocation(out a);
+		set_size_mode(a.width);
 	}
+
+    private void set_size_mode(int width){
+        	if(width < 400){
+		        index_stack.set_visible(false);
+		        primary_action_stack.width_request = 60;
+		        content_box.set_margin_start(12);
+		    }else{
+		        index_stack.set_visible(true);
+		        primary_action_stack.width_request = 74;
+		        content_box.set_margin_start(0);
+		    }
+    }
 
 	public void toggle_revealer (){
 		revealer.set_reveal_child(!revealer.get_reveal_child());

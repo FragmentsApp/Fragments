@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.0 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <template class="FragmentsTorrentGroup" parent="GtkBox">
-    <property name="width_request">600</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="margin_left">6</property>
+    <property name="margin_right">6</property>
     <property name="orientation">vertical</property>
     <child>
       <object class="GtkLabel" id="title_label">
