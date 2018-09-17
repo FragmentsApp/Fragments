@@ -8,206 +8,208 @@ msgstr ""
 "Project-Id-Version: fragments\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-05 16:10+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-09-18 15:32+0000\n"
+"Last-Translator: Rafael Mardojai CM <mardojai.cardenas@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/fragments/"
+"translations/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: data/ui/settings-window.ui:41
 msgid "Use dark theme"
-msgstr ""
+msgstr "Usar tema oscuro"
 
 #: data/ui/settings-window.ui:65
 msgid "Maximum active downloads"
-msgstr ""
+msgstr "Máximas descargas activas"
 
 #: data/ui/settings-window.ui:77
 msgid "Download folder"
-msgstr ""
+msgstr "Carpeta de descarga"
 
 #: data/ui/settings-window.ui:152
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: data/ui/torrent-row.ui:248
 msgid "Please wait…"
-msgstr ""
+msgstr "Por favor espera…"
 
 #: data/ui/torrent-row.ui:391
 msgid "Download"
-msgstr ""
+msgstr "Descarga"
 
 #: data/ui/torrent-row.ui:414
 msgid "Seeders"
-msgstr ""
+msgstr "Distribuidores"
 
 #: data/ui/torrent-row.ui:441
 msgid "Downloaded"
-msgstr ""
+msgstr "Descargado"
 
 #: data/ui/torrent-row.ui:468 data/ui/torrent-row.ui:548
 msgid "Speed"
-msgstr ""
+msgstr "Velocidad"
 
 #: data/ui/torrent-row.ui:525
 msgid "Upload"
-msgstr ""
+msgstr "Subida"
 
 #: data/ui/torrent-row.ui:587
 msgid "Leechers"
-msgstr ""
+msgstr "Clientes"
 
 #: data/ui/torrent-row.ui:602
 msgid "Uploaded"
-msgstr ""
+msgstr "Subido"
 
 #: data/ui/torrent-row.ui:654
 msgid "Request more peers"
-msgstr ""
+msgstr "Solicitar más pares"
 
 #: data/ui/torrent-row.ui:713
 msgid "Open in folder"
-msgstr ""
+msgstr "Abrir en carpeta"
 
 #: data/ui/torrent-row.ui:760
 msgid "Turbo Boost"
-msgstr ""
+msgstr "Turbo"
 
 #: data/ui/torrent-row.ui:773
 msgid "Speeds up this torrent at the expense of others"
-msgstr ""
+msgstr "Acelera este torrent a expensas de otros"
 
 #: data/ui/window.ui:84
 msgid "Get some torrents"
-msgstr ""
+msgstr "Obtener algunos torrents"
 
 #: data/ui/window.ui:141
 msgid "Click a magnet link on a website"
-msgstr ""
+msgstr "Haga clic en un enlace magnet en un sitio web"
 
 #: data/ui/window.ui:153
 msgid "Copy a magnet link to the clipboard"
-msgstr ""
+msgstr "Copie un enlace magnet al portapapeles"
 
 #: data/ui/window.ui:165
 msgid "Add a torrent file from the menu"
-msgstr ""
+msgstr "Agregue un archivo torrent desde el menú"
 
 #: data/ui/window.ui:246
 msgid "Add"
-msgstr ""
+msgstr "Agregar"
 
 #: src/fragments-app.vala:85
 msgid "A BitTorrent Client"
-msgstr ""
+msgstr "Un cliente BitTorrent"
 
 #: src/fragments-app.vala:89
 msgid "GitHub Homepage"
-msgstr ""
+msgstr "Página de GitHub"
 
 #: src/fragments-settings-window.vala:32
 msgid "Select download folder"
-msgstr ""
+msgstr "Seleccione la carpeta de descargas"
 
 #: src/fragments-settings-window.vala:33 src/fragments-window.vala:77
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: src/fragments-settings-window.vala:34 src/fragments-window.vala:78
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: src/fragments-torrent.vala:101
 #, c-format
 msgid "%i (%i active)"
-msgstr ""
+msgstr "%i (%i activo)"
 
 #: src/fragments-utils.vala:9
 #, c-format
 msgid "%u day"
 msgid_plural "%u days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u día"
+msgstr[1] "%u días"
 
 #: src/fragments-utils.vala:10
 #, c-format
 msgid "%u hour"
 msgid_plural "%u hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u hora"
+msgstr[1] "%u horas"
 
 #: src/fragments-utils.vala:11
 #, c-format
 msgid "%u minute"
 msgid_plural "%u minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u minuto"
+msgstr[1] "%u minutos"
 
 #: src/fragments-utils.vala:12
 #, c-format
 msgid "%u second"
 msgid_plural "%u seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u segundo"
+msgstr[1] "%u segundos"
 
 #: src/fragments-utils.vala:23
 #, c-format
 msgid "%s uploaded · %s"
-msgstr ""
+msgstr "%s subido · %s"
 
 #: src/fragments-utils.vala:25
 #, c-format
 msgid "%s of %s downloaded"
-msgstr ""
+msgstr "%s de %s descargado"
 
 #: src/fragments-utils.vala:27
 #, c-format
 msgid "%s of %s downloaded · %s"
-msgstr ""
+msgstr "%s de %s descargado · %s"
 
 #: src/fragments-utils.vala:33
 msgid "Paused"
-msgstr ""
+msgstr "Pausado"
 
 #: src/fragments-utils.vala:36
 #, c-format
 msgid "%s left"
-msgstr ""
+msgstr "%s restante"
 
 #: src/fragments-utils.vala:38 src/fragments-utils.vala:40
 #: src/fragments-window.vala:26
 msgid "Queued"
-msgstr ""
+msgstr "En cola"
 
 #: src/fragments-utils.vala:39
 msgid "Checking…"
-msgstr ""
+msgstr "Comprobando…"
 
 #: src/fragments-window.vala:24
 msgid "Downloading"
-msgstr ""
+msgstr "Descargando"
 
 #: src/fragments-window.vala:25
 msgid "Seeding"
-msgstr ""
+msgstr "Compartiendo"
 
 #: src/fragments-window.vala:75
 msgid "Open torrents"
-msgstr ""
+msgstr "Abrir torrents"
 
 #: src/fragments-window.vala:83
 msgid "All files"
-msgstr ""
+msgstr "Todos los archivos"
 
 #: src/fragments-window.vala:86
 msgid "Torrent files"
-msgstr ""
+msgstr "Archivos torrent"
 
 #: src/fragments-window.vala:117
 #, c-format
 msgid "Add magnet link <b>\"%s\"</b> from clipboard?"
-msgstr ""
+msgstr "¿Agregar enlace magnet <b>\"%s\"</b> desde el portapapeles?"
