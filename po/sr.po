@@ -1,0 +1,218 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the fragments package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fragments\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-05 16:10+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: data/ui/settings-window.ui:41
+msgid "Use dark theme"
+msgstr ""
+
+#: data/ui/settings-window.ui:65
+msgid "Maximum active downloads"
+msgstr ""
+
+#: data/ui/settings-window.ui:77
+msgid "Download folder"
+msgstr ""
+
+#: data/ui/settings-window.ui:152
+msgid "General"
+msgstr ""
+
+#: data/ui/torrent-row.ui:248
+msgid "Please wait…"
+msgstr ""
+
+#: data/ui/torrent-row.ui:391
+msgid "Download"
+msgstr ""
+
+#: data/ui/torrent-row.ui:414
+msgid "Seeders"
+msgstr ""
+
+#: data/ui/torrent-row.ui:441
+msgid "Downloaded"
+msgstr ""
+
+#: data/ui/torrent-row.ui:468 data/ui/torrent-row.ui:548
+msgid "Speed"
+msgstr ""
+
+#: data/ui/torrent-row.ui:525
+msgid "Upload"
+msgstr ""
+
+#: data/ui/torrent-row.ui:587
+msgid "Leechers"
+msgstr ""
+
+#: data/ui/torrent-row.ui:602
+msgid "Uploaded"
+msgstr ""
+
+#: data/ui/torrent-row.ui:654
+msgid "Request more peers"
+msgstr ""
+
+#: data/ui/torrent-row.ui:713
+msgid "Open in folder"
+msgstr ""
+
+#: data/ui/torrent-row.ui:760
+msgid "Turbo Boost"
+msgstr ""
+
+#: data/ui/torrent-row.ui:773
+msgid "Speeds up this torrent at the expense of others"
+msgstr ""
+
+#: data/ui/window.ui:84
+msgid "Get some torrents"
+msgstr ""
+
+#: data/ui/window.ui:141
+msgid "Click a magnet link on a website"
+msgstr ""
+
+#: data/ui/window.ui:153
+msgid "Copy a magnet link to the clipboard"
+msgstr ""
+
+#: data/ui/window.ui:165
+msgid "Add a torrent file from the menu"
+msgstr ""
+
+#: data/ui/window.ui:246
+msgid "Add"
+msgstr ""
+
+#: src/fragments-app.vala:85
+msgid "A BitTorrent Client"
+msgstr ""
+
+#: src/fragments-app.vala:89
+msgid "GitHub Homepage"
+msgstr ""
+
+#: src/fragments-settings-window.vala:32
+msgid "Select download folder"
+msgstr ""
+
+#: src/fragments-settings-window.vala:33 src/fragments-window.vala:77
+msgid "Cancel"
+msgstr ""
+
+#: src/fragments-settings-window.vala:34 src/fragments-window.vala:78
+msgid "Open"
+msgstr ""
+
+#: src/fragments-torrent.vala:101
+#, c-format
+msgid "%i (%i active)"
+msgstr ""
+
+#: src/fragments-utils.vala:9
+#, c-format
+msgid "%u day"
+msgid_plural "%u days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/fragments-utils.vala:10
+#, c-format
+msgid "%u hour"
+msgid_plural "%u hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/fragments-utils.vala:11
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/fragments-utils.vala:12
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/fragments-utils.vala:23
+#, c-format
+msgid "%s uploaded · %s"
+msgstr ""
+
+#: src/fragments-utils.vala:25
+#, c-format
+msgid "%s of %s downloaded"
+msgstr ""
+
+#: src/fragments-utils.vala:27
+#, c-format
+msgid "%s of %s downloaded · %s"
+msgstr ""
+
+#: src/fragments-utils.vala:33
+msgid "Paused"
+msgstr ""
+
+#: src/fragments-utils.vala:36
+#, c-format
+msgid "%s left"
+msgstr ""
+
+#: src/fragments-utils.vala:38 src/fragments-utils.vala:40
+#: src/fragments-window.vala:26
+msgid "Queued"
+msgstr ""
+
+#: src/fragments-utils.vala:39
+msgid "Checking…"
+msgstr ""
+
+#: src/fragments-window.vala:24
+msgid "Downloading"
+msgstr ""
+
+#: src/fragments-window.vala:25
+msgid "Seeding"
+msgstr ""
+
+#: src/fragments-window.vala:75
+msgid "Open torrents"
+msgstr ""
+
+#: src/fragments-window.vala:83
+msgid "All files"
+msgstr ""
+
+#: src/fragments-window.vala:86
+msgid "Torrent files"
+msgstr ""
+
+#: src/fragments-window.vala:117
+#, c-format
+msgid "Add magnet link <b>\"%s\"</b> from clipboard?"
+msgstr ""
