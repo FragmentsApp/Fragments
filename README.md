@@ -1,3 +1,5 @@
+Moved to [GNOME GitLab](https://gitlab.gnome.org/haecker-felix/Fragments)!
+
 # Fragments
 [![GitHub release](https://img.shields.io/github/release/haecker-felix/fragments.svg)](https://github.com/haecker-felix/Fragments/releases/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
