@@ -8,38 +8,40 @@ msgstr ""
 "Project-Id-Version: fragments\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-05 16:10+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-12-17 15:08+0000\n"
+"Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/fragments/"
+"translations/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: data/ui/settings-window.ui:41
 msgid "Use dark theme"
-msgstr ""
+msgstr "Uzi malluman temon"
 
 #: data/ui/settings-window.ui:65
 msgid "Maximum active downloads"
-msgstr ""
+msgstr "Maksimumaj aktivaj elŝutoj"
 
 #: data/ui/settings-window.ui:77
 msgid "Download folder"
-msgstr ""
+msgstr "Elŝuta dosierujo"
 
 #: data/ui/settings-window.ui:152
 msgid "General"
-msgstr ""
+msgstr "Ĝenerala"
 
 #: data/ui/torrent-row.ui:248
 msgid "Please wait…"
-msgstr ""
+msgstr "Bonvolu atendi…"
 
 #: data/ui/torrent-row.ui:391
 msgid "Download"
-msgstr ""
+msgstr "Elŝuti"
 
 #: data/ui/torrent-row.ui:414
 msgid "Seeders"
@@ -51,7 +53,7 @@ msgstr ""
 
 #: data/ui/torrent-row.ui:468 data/ui/torrent-row.ui:548
 msgid "Speed"
-msgstr ""
+msgstr "Rapido"
 
 #: data/ui/torrent-row.ui:525
 msgid "Upload"
@@ -83,27 +85,27 @@ msgstr ""
 
 #: data/ui/window.ui:84
 msgid "Get some torrents"
-msgstr ""
+msgstr "Akiras kelkajn torentojn"
 
 #: data/ui/window.ui:141
 msgid "Click a magnet link on a website"
-msgstr ""
+msgstr "Alklaku magnetan ligilon sur retejo"
 
 #: data/ui/window.ui:153
 msgid "Copy a magnet link to the clipboard"
-msgstr ""
+msgstr "Kopiu magnetan ligilon al la poŝo"
 
 #: data/ui/window.ui:165
 msgid "Add a torrent file from the menu"
-msgstr ""
+msgstr "Aldonu torentan dosieron el la menuo"
 
 #: data/ui/window.ui:246
 msgid "Add"
-msgstr ""
+msgstr "Aldoni"
 
 #: src/fragments-app.vala:85
 msgid "A BitTorrent Client"
-msgstr ""
+msgstr "BitTorrent Kliento"
 
 #: src/fragments-app.vala:89
 msgid "GitHub Homepage"
@@ -115,11 +117,11 @@ msgstr ""
 
 #: src/fragments-settings-window.vala:33 src/fragments-window.vala:77
 msgid "Cancel"
-msgstr ""
+msgstr "Nuligi"
 
 #: src/fragments-settings-window.vala:34 src/fragments-window.vala:78
 msgid "Open"
-msgstr ""
+msgstr "Malfermi"
 
 #: src/fragments-torrent.vala:101
 #, c-format
@@ -171,7 +173,7 @@ msgstr ""
 
 #: src/fragments-utils.vala:33
 msgid "Paused"
-msgstr ""
+msgstr "Paŭzis"
 
 #: src/fragments-utils.vala:36
 #, c-format
@@ -210,4 +212,4 @@ msgstr ""
 #: src/fragments-window.vala:117
 #, c-format
 msgid "Add magnet link <b>\"%s\"</b> from clipboard?"
-msgstr ""
+msgstr "Aldonu magnetan ligilon <b>\"%s\"</b> el poŝo?"
