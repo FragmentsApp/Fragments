@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: fragments\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-05 16:10+0200\n"
-"PO-Revision-Date: 2018-10-04 13:36+0000\n"
-"Last-Translator: Slobodan Terzić <githzerai06@gmail.com>\n"
+"PO-Revision-Date: 2019-02-28 16:17+0000\n"
+"Last-Translator: Марко М. Костић <marko.m.kostic@gmail.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/fragments/"
 "translations/sr/>\n"
 "Language: sr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: data/ui/settings-window.ui:41
 msgid "Use dark theme"
@@ -26,7 +26,7 @@ msgstr "Користи тамну тему"
 
 #: data/ui/settings-window.ui:65
 msgid "Maximum active downloads"
-msgstr "Максимум активних преузимања"
+msgstr "Највише покренутих преузимања"
 
 #: data/ui/settings-window.ui:77
 msgid "Download folder"
@@ -38,7 +38,7 @@ msgstr "Опште"
 
 #: data/ui/torrent-row.ui:248
 msgid "Please wait…"
-msgstr "Молим сачекајте…"
+msgstr "Сачекајте…"
 
 #: data/ui/torrent-row.ui:391
 msgid "Download"
@@ -70,7 +70,7 @@ msgstr "Послато"
 
 #: data/ui/torrent-row.ui:654
 msgid "Request more peers"
-msgstr "Захтевај више учесника"
+msgstr "Затражи више учесника"
 
 #: data/ui/torrent-row.ui:713
 msgid "Open in folder"
@@ -90,7 +90,7 @@ msgstr "Добавите неке торенте"
 
 #: data/ui/window.ui:141
 msgid "Click a magnet link on a website"
-msgstr "Киликните на магнет везу на веб страни"
+msgstr "Кликните на магнет везу на веб страни"
 
 #: data/ui/window.ui:153
 msgid "Copy a magnet link to the clipboard"
@@ -98,7 +98,7 @@ msgstr "Копирајте магнет везу у оставу"
 
 #: data/ui/window.ui:165
 msgid "Add a torrent file from the menu"
-msgstr "Додајте торент фајл из менија"
+msgstr "Додајте торент датотеку из менија"
 
 #: data/ui/window.ui:246
 msgid "Add"
@@ -106,7 +106,7 @@ msgstr "Додај"
 
 #: src/fragments-app.vala:85
 msgid "A BitTorrent Client"
-msgstr "Битторент клијент"
+msgstr "Бит-торент клијент"
 
 #: src/fragments-app.vala:89
 msgid "GitHub Homepage"
@@ -122,12 +122,12 @@ msgstr "Откажи"
 
 #: src/fragments-settings-window.vala:34 src/fragments-window.vala:78
 msgid "Open"
-msgstr "Оптвори"
+msgstr "Отвори"
 
 #: src/fragments-torrent.vala:101
 #, c-format
 msgid "%i (%i active)"
-msgstr "%i1 (активни %i2)"
+msgstr "%i1 (покренутих: %i2)"
 
 #: src/fragments-utils.vala:9
 #, c-format
@@ -208,13 +208,13 @@ msgstr "Отвори торенте"
 
 #: src/fragments-window.vala:83
 msgid "All files"
-msgstr "Сви фајлови"
+msgstr "Све датотеке"
 
 #: src/fragments-window.vala:86
 msgid "Torrent files"
-msgstr "Торент фајлови"
+msgstr "Торент датотеке"
 
 #: src/fragments-window.vala:117
 #, c-format
 msgid "Add magnet link <b>\"%s\"</b> from clipboard?"
-msgstr "Додати мегнет везу <b>„%s“</b> из оставе?"
+msgstr "Додати магнетну везу <b>„%s“</b> из оставе?"
